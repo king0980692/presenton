@@ -1,0 +1,1278 @@
+{
+  "name": "standard",
+  "ordered": false,
+  "slides": [
+    {
+      "id": "standard:chart-left-text-right-layout",
+      "name": "Chart Left Text Right",
+      "description": "A slide with header label, a left-side inline bar chart, and right-side title with paragraph.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main heading (max ~7 words)",
+            "type": "string",
+            "minLength": 16,
+            "maxLength": 64
+          },
+          "paragraph": {
+            "description": "Supporting description",
+            "type": "string",
+            "minLength": 50,
+            "maxLength": 200
+          },
+          "chart": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "bar",
+                  "horizontalBar",
+                  "line",
+                  "pie"
+                ]
+              },
+              "data": {
+                "minItems": 3,
+                "maxItems": 8,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "description": "Category label",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 12
+                    },
+                    "value": {
+                      "description": "Value 0–100",
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "primaryColor": {
+                "type": "string"
+              },
+              "gridColor": {
+                "type": "string"
+              },
+              "pieColors": {
+                "minItems": 1,
+                "maxItems": 10,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "showLabels": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "type",
+              "data",
+              "primaryColor",
+              "gridColor",
+              "pieColors",
+              "showLabels"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "paragraph",
+          "chart"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "standard:header-left-media-contact-info-slide",
+      "name": "ContactLayout",
+      "description": "A slide with a top bar, left media with overlay and bottom bar, and right content with header and text blocks. This should only be used for contact information.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "metaMaxWords": {
+            "description": "Maximum number of words in any single text field",
+            "type": "number"
+          },
+          "topBar": {
+            "type": "object",
+            "properties": {
+              "pageNumber": {
+                "description": "Top-right number text. Max 1 word",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 3
+              }
+            },
+            "required": [
+              "pageNumber"
+            ],
+            "additionalProperties": false
+          },
+          "leftPanel": {
+            "type": "object",
+            "properties": {
+              "backgroundImage": {
+                "type": "object",
+                "properties": {
+                  "__image_url__": {
+                    "description": "URL to image",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "__image_prompt__": {
+                    "description": "Prompt used to generate the image. Max 24 words",
+                    "type": "string",
+                    "minLength": 10,
+                    "maxLength": 120
+                  }
+                },
+                "required": [
+                  "__image_url__",
+                  "__image_prompt__"
+                ],
+                "additionalProperties": false
+              },
+              "centerIcon": {
+                "type": "object",
+                "properties": {
+                  "__icon_url__": {
+                    "description": "URL to icon",
+                    "type": "string"
+                  },
+                  "__icon_query__": {
+                    "description": "Query used to search the icon. Max 5 words",
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 24
+                  }
+                },
+                "required": [
+                  "__icon_url__",
+                  "__icon_query__"
+                ],
+                "additionalProperties": false
+              },
+              "websiteBar": {
+                "type": "object",
+                "properties": {
+                  "websiteText": {
+                    "description": "Website text in bottom green bar. Max 4 words",
+                    "type": "string",
+                    "minLength": 12,
+                    "maxLength": 30
+                  },
+                  "actionIcon": {
+                    "type": "object",
+                    "properties": {
+                      "__icon_url__": {
+                        "description": "URL to icon",
+                        "type": "string"
+                      },
+                      "__icon_query__": {
+                        "description": "Query used to search the icon. Max 5 words",
+                        "type": "string",
+                        "minLength": 3,
+                        "maxLength": 24
+                      }
+                    },
+                    "required": [
+                      "__icon_url__",
+                      "__icon_query__"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "websiteText",
+                  "actionIcon"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "backgroundImage",
+              "centerIcon",
+              "websiteBar"
+            ],
+            "additionalProperties": false
+          },
+          "rightContent": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "description": "Main heading. Max 6 words",
+                "type": "string",
+                "minLength": 18,
+                "maxLength": 40
+              },
+              "sections": {
+                "description": "List of content sections",
+                "minItems": 1,
+                "maxItems": 3,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "description": "Section label text. Max 2 words",
+                      "type": "string",
+                      "minLength": 4,
+                      "maxLength": 10
+                    },
+                    "value": {
+                      "description": "Section value text. Max 100 characters",
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 50
+                    },
+                    "showDivider": {
+                      "description": "Whether to show bottom divider",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "value",
+                    "showDivider"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "title",
+              "sections"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "metaMaxWords",
+          "topBar",
+          "leftPanel",
+          "rightContent"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "standard:split-left-strip-header-title-subtitle-cards-slide",
+      "name": "Heading Bullet Image Description",
+      "description": "A slide with a left strip, top label with rule, right header, right description, floating small image, and a centered card with ...cards.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "metaMaxWords": {
+            "description": "Maximum number of words the text areas can handle collectively.",
+            "type": "number"
+          },
+          "pageNumber": {
+            "description": "Top-right page number text. Max 3 chars",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 3
+          },
+          "heading": {
+            "description": "Main heading across up to 2 lines. Max 7 words",
+            "type": "string",
+            "minLength": 16,
+            "maxLength": 38
+          },
+          "subheading": {
+            "description": "Supporting paragraph under the heading. Max 35 words",
+            "type": "string",
+            "minLength": 60,
+            "maxLength": 200
+          },
+          "smallImage": {
+            "description": "Small image partially behind the main card",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Prompt used to generate the image. Max 30 words",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 150
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "cards": {
+            "description": "Array of strategy cards",
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Card ribbon title. Max 3 words",
+                  "type": "string",
+                  "minLength": 8,
+                  "maxLength": 16
+                },
+                "body": {
+                  "description": "Card body text. Max 28 words",
+                  "type": "string",
+                  "minLength": 60,
+                  "maxLength": 160
+                }
+              },
+              "required": [
+                "title",
+                "body"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "metaMaxWords",
+          "pageNumber",
+          "heading",
+          "subheading",
+          "smallImage",
+          "cards"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "standard:header-bullets-title-description-image-slide",
+      "name": "Icon Bullet Description",
+      "description": "A slide with a small header label and number, a left card of ...cards with round symbols and titles with descriptions, a large heading with supporting text, and a decorative image on a mid-page band",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "metaMaxWords": {
+            "description": "Maximum number of words any single text field can handle in this layout",
+            "type": "number"
+          },
+          "headerNumber": {
+            "description": "Small header number text. Max 3 characters",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 3
+          },
+          "rightTitle": {
+            "description": "Large heading on the right. Max 8 words",
+            "type": "string",
+            "minLength": 24,
+            "maxLength": 72
+          },
+          "rightDescription": {
+            "description": "Supporting paragraph under the large heading. Max 40 words",
+            "type": "string",
+            "minLength": 120,
+            "maxLength": 240
+          },
+          "cards": {
+            "description": "Array of ...cards with a round symbol, title and description. Max 6 items",
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "symbolText": {
+                  "description": "Single-character symbol inside the round badge",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1
+                },
+                "symbolIcon": {
+                  "description": "Optional icon representation for the round symbol",
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "description": "URL to icon",
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "description": "Query used to search the icon. Max 3 words",
+                      "type": "string",
+                      "minLength": 2,
+                      "maxLength": 20
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                },
+                "title": {
+                  "description": "Title for the card item. Max 4 words",
+                  "type": "string",
+                  "minLength": 16,
+                  "maxLength": 38
+                },
+                "description": {
+                  "description": "Description for the card item. Max 15 words.",
+                  "type": "string",
+                  "minLength": 50,
+                  "maxLength": 100
+                }
+              },
+              "required": [
+                "symbolText",
+                "symbolIcon",
+                "title",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "metaMaxWords",
+          "headerNumber",
+          "rightTitle",
+          "rightDescription",
+          "cards"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "standard:header-title-card-slide",
+      "name": "Icon Image Description",
+      "description": "A slide with a top bar, centered title, placeholder icon area, and a colored card with circular icon, heading, and paragraph",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "meta": {
+            "type": "object",
+            "properties": {
+              "maxWords": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "maxWords"
+            ],
+            "additionalProperties": false
+          },
+          "topBar": {
+            "type": "object",
+            "properties": {
+              "pageNumber": {
+                "description": "Page number text. Max 1 word",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 3
+              }
+            },
+            "required": [
+              "pageNumber"
+            ],
+            "additionalProperties": false
+          },
+          "title": {
+            "description": "Main title split across up to two lines. Max 10 words",
+            "type": "string",
+            "minLength": 24,
+            "maxLength": 56
+          },
+          "backgroundImage": {
+            "description": "Full-bleed background image behind card area",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Prompt used to generate the image. Max 30 words",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 200
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "card": {
+            "type": "object",
+            "properties": {
+              "circleIcon": {
+                "type": "object",
+                "properties": {
+                  "__icon_url__": {
+                    "description": "URL to icon",
+                    "type": "string"
+                  },
+                  "__icon_query__": {
+                    "description": "Query used to search the icon. Max 3 words",
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 30
+                  }
+                },
+                "required": [
+                  "__icon_url__",
+                  "__icon_query__"
+                ],
+                "additionalProperties": false
+              },
+              "heading": {
+                "description": "Card heading text. Max 10 words",
+                "type": "string",
+                "minLength": 22,
+                "maxLength": 70
+              },
+              "body": {
+                "description": "Card body paragraph. Max 80 words",
+                "type": "string",
+                "minLength": 140,
+                "maxLength": 450
+              },
+              "image": {
+                "description": "Optional supporting image for the card. Max 30 words",
+                "type": "object",
+                "properties": {
+                  "__image_url__": {
+                    "description": "URL to image",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "__image_prompt__": {
+                    "description": "Prompt used to generate the image. Max 30 words",
+                    "type": "string",
+                    "minLength": 10,
+                    "maxLength": 200
+                  }
+                },
+                "required": [
+                  "__image_url__",
+                  "__image_prompt__"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "circleIcon",
+              "heading",
+              "body",
+              "image"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "meta",
+          "topBar",
+          "title",
+          "backgroundImage",
+          "card"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "standard:header-smallbar-title-team-cards-slide",
+      "name": "Image List With Description",
+      "description": "A slide with a top utility bar, centered title, and a grid of cards with names, roles, and background images.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "utilityBar": {
+            "type": "object",
+            "properties": {
+              "pageNumber": {
+                "description": "Page number text. 1-2 digits",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2
+              },
+              "decorativeLine": {
+                "description": "Decorative line representation.",
+                "type": "object",
+                "properties": {
+                  "__icon_url__": {
+                    "description": "URL to icon",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "__icon_query__": {
+                    "description": "Query used to search the icon. Max 5 words",
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 30
+                  }
+                },
+                "required": [
+                  "__icon_url__",
+                  "__icon_query__"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "pageNumber",
+              "decorativeLine"
+            ],
+            "additionalProperties": false
+          },
+          "title": {
+            "description": "Centered main title. Max 5 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 50
+          },
+          "cards": {
+            "description": "Grid of member cards with name, role, and image. Up to 4 items",
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "Member name. Up to 3 words.",
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 30
+                },
+                "role": {
+                  "description": "Short description under name. Up to 10 words",
+                  "type": "string",
+                  "minLength": 20,
+                  "maxLength": 50
+                },
+                "photo": {
+                  "type": "object",
+                  "properties": {
+                    "__image_url__": {
+                      "description": "URL to image",
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "__image_prompt__": {
+                      "description": "Prompt used to generate the image. Max 30 words",
+                      "type": "string",
+                      "minLength": 10,
+                      "maxLength": 160
+                    }
+                  },
+                  "required": [
+                    "__image_url__",
+                    "__image_prompt__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name",
+                "role",
+                "photo"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "utilityBar",
+          "title",
+          "cards"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "standard:header-counter-two-column-image-text-slide",
+      "name": "Intro Slide",
+      "description": "A slide with a header row containing label, separator, and counter, followed by a two-column layout with a media area and stacked text blocks. If used as the endig slide then it shoudn't have the intro card.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "maxWords": 460,
+        "type": "object",
+        "properties": {
+          "header": {
+            "type": "object",
+            "properties": {
+              "separatorIcon": {
+                "description": "Graphic separator element",
+                "type": "object",
+                "properties": {
+                  "__icon_url__": {
+                    "description": "URL to icon",
+                    "type": "string"
+                  },
+                  "__icon_query__": {
+                    "description": "Query used to search the icon. Max 3 words",
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 40
+                  }
+                },
+                "required": [
+                  "__icon_url__",
+                  "__icon_query__"
+                ],
+                "additionalProperties": false
+              },
+              "counter": {
+                "description": "Small counter text. Max 1 word",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 3
+              }
+            },
+            "required": [
+              "separatorIcon",
+              "counter"
+            ],
+            "additionalProperties": false
+          },
+          "media": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "Choose media type for left panel",
+                "type": "string",
+                "enum": [
+                  "image"
+                ]
+              },
+              "image": {
+                "type": "object",
+                "properties": {
+                  "__image_url__": {
+                    "description": "URL to image",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "__image_prompt__": {
+                    "description": "Prompt used to generate the image. Max 30 words",
+                    "type": "string",
+                    "minLength": 10,
+                    "maxLength": 150
+                  }
+                },
+                "required": [
+                  "__image_url__",
+                  "__image_prompt__"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "type",
+              "image"
+            ],
+            "additionalProperties": false
+          },
+          "title": {
+            "description": "Main title, supports a line break. Max 6 words",
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 30
+          },
+          "titleBreakAfter": {
+            "description": "Character index to insert a line break in title",
+            "type": "number",
+            "minimum": 1,
+            "maximum": 25
+          },
+          "paragraph": {
+            "description": "Paragraph text block. Max 20 words",
+            "type": "string",
+            "minLength": 50,
+            "maxLength": 200
+          },
+          "introCard": {
+            "type": "object",
+            "properties": {
+              "enabled": {
+                "description": "Show intro card with name and date",
+                "type": "boolean"
+              },
+              "initials": {
+                "description": "Initials inside the circle",
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 3
+              },
+              "name": {
+                "description": "Display name",
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 40
+              },
+              "date": {
+                "description": "Display date string",
+                "type": "string",
+                "minLength": 6,
+                "maxLength": 40
+              }
+            },
+            "required": [
+              "enabled",
+              "initials",
+              "name",
+              "date"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "header",
+          "media",
+          "title",
+          "titleBreakAfter",
+          "paragraph",
+          "introCard"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "standard:header-tagline-cards-grid-slide",
+      "name": "Metrics Description",
+      "description": "A slide with a top utility row, a header, a tagline, and a grid of cards each with a number block and text",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title. Single line up to ~34 chars or two lines up to ~70 chars. Max 9 words",
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 70
+          },
+          "tagline": {
+            "description": "Subtitle/tagline under title. Max 20 words",
+            "type": "string",
+            "minLength": 40,
+            "maxLength": 120
+          },
+          "decorativeLine": {
+            "description": "SVG decorative line asset",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Prompt used to generate the image. Max 40 words",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 200
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "cards": {
+            "description": "Grid of cards with number block, subtitle, and body (<=100 chars)",
+            "minItems": 1,
+            "maxItems": 6,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "number": {
+                  "description": "Main number text inside number block. 1 to 3 digits",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 5
+                },
+                "numberSymbol": {
+                  "description": "Optional symbol next to the number. Single character",
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 3
+                },
+                "subtitle": {
+                  "description": "Card subtitle. Max 5 words",
+                  "type": "string",
+                  "minLength": 8,
+                  "maxLength": 28
+                },
+                "body": {
+                  "description": "Card body text. Max 100 characters",
+                  "type": "string",
+                  "minLength": 20,
+                  "maxLength": 100
+                },
+                "icon": {
+                  "description": "Optional icon for the card header area",
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "description": "URL to icon",
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "description": "Query used to search the icon. Max 6 words",
+                      "type": "string",
+                      "minLength": 3,
+                      "maxLength": 40
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "number",
+                "numberSymbol",
+                "subtitle",
+                "body",
+                "icon"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "title",
+          "tagline",
+          "decorativeLine",
+          "cards"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "standard:header-bullets-image-split-slide",
+      "name": "Numbered Bullet Single Image",
+      "description": "A slide with a top bar, left column with numbered bullets, middle image panel, and right stacked heading with paragraph",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "metaMaxWords": {
+            "description": "Maximum number of words allowed in any prompt/description metadata fields.",
+            "type": "number"
+          },
+          "topBar": {
+            "type": "object",
+            "properties": {
+              "lineIcon": {
+                "description": "Decorative line representation with query only",
+                "type": "object",
+                "properties": {
+                  "__icon_url__": {
+                    "description": "URL to icon",
+                    "type": "string"
+                  },
+                  "__icon_query__": {
+                    "description": "Query used to search the icon. Max 6 words",
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 30
+                  }
+                },
+                "required": [
+                  "__icon_url__",
+                  "__icon_query__"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "lineIcon"
+            ],
+            "additionalProperties": false
+          },
+          "leftBullets": {
+            "description": "List of numbered bullets. Max 5 items",
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "numberText": {
+                  "description": "Two-digit bullet number. Max 2 chars",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 2
+                },
+                "title": {
+                  "description": "Bullet title text. Designed for 24px. Max ~36 chars",
+                  "type": "string",
+                  "minLength": 10,
+                  "maxLength": 36
+                },
+                "body": {
+                  "description": "Bullet body text. Max ~100 chars",
+                  "type": "string",
+                  "minLength": 60,
+                  "maxLength": 100
+                }
+              },
+              "required": [
+                "numberText",
+                "title",
+                "body"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "middleImage": {
+            "description": "Image displayed in the middle column",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Prompt used to generate the image. Max 18 words",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 90
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "rightHeader": {
+            "type": "object",
+            "properties": {
+              "heading": {
+                "description": "Right column heading. Max ~30 chars",
+                "type": "string",
+                "minLength": 6,
+                "maxLength": 30
+              },
+              "paragraph": {
+                "description": "Right paragraph text. Max 200 chars",
+                "type": "string",
+                "minLength": 80,
+                "maxLength": 200
+              }
+            },
+            "required": [
+              "heading",
+              "paragraph"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "metaMaxWords",
+          "topBar",
+          "leftBullets",
+          "middleImage",
+          "rightHeader"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "standard:table-of-contents-layout",
+      "name": "Table Of Contents",
+      "description": "Header with brand marker, title, optional description, and a two-column table of contents list",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "topBar": {
+            "type": "object",
+            "properties": {
+              "marker": {
+                "description": "Numeric marker on the top bar. Up to 3 digits",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 3
+              }
+            },
+            "required": [
+              "marker"
+            ],
+            "additionalProperties": false
+          },
+          "title": {
+            "description": "Main slide title. Max 10 words",
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 68
+          },
+          "description": {
+            "description": "Lead paragraph. Optional. Max 35 words",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200
+          },
+          "items": {
+            "description": "List of contents (3-10)",
+            "minItems": 3,
+            "maxItems": 10,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Section title. Max 50 characters",
+                  "type": "string",
+                  "minLength": 4,
+                  "maxLength": 50
+                }
+              },
+              "required": [
+                "title"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "topBar",
+          "title",
+          "description",
+          "items"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "standard:visual-metrics",
+      "name": "Visual Metrics",
+      "description": "A slide with a header bar, numeric marker, title, description, and grid of cards with headings, circular metrics, and texts",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "topBar": {
+            "type": "object",
+            "properties": {
+              "marker": {
+                "description": "Numeric marker on the top bar. Up to 3 digits",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 3
+              }
+            },
+            "required": [
+              "marker"
+            ],
+            "additionalProperties": false
+          },
+          "title": {
+            "description": "Main slide title. Max 10 words",
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 68
+          },
+          "description": {
+            "description": "Lead paragraph. Max 35 words",
+            "type": "string",
+            "minLength": 70,
+            "maxLength": 200
+          },
+          "cards": {
+            "description": "Grid of cards with heading, circular metric, and text",
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Card heading. Max 3 words",
+                  "type": "string",
+                  "minLength": 6,
+                  "maxLength": 18
+                },
+                "value": {
+                  "description": "Numeric value to display",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 9999
+                },
+                "unit": {
+                  "description": "Unit for the value, e.g., %, K, M",
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 2
+                },
+                "description": {
+                  "description": "Card supporting text. Max 50 characters",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 50
+                }
+              },
+              "required": [
+                "title",
+                "value",
+                "unit",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "chartPalette": {
+            "description": "Palette for charts",
+            "minItems": 2,
+            "maxItems": 6,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 4,
+              "maxLength": 20
+            }
+          }
+        },
+        "required": [
+          "topBar",
+          "title",
+          "description",
+          "cards",
+          "chartPalette"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}
