@@ -14,6 +14,11 @@ from utils.asset_directory_utils import get_exports_directory
 import uuid
 
 
+def _get_nextjs_base_url():
+    port = os.environ.get("NEXTJS_PORT", "3000")
+    return f"http://localhost:{port}"
+
+
 async def export_presentation(
     presentation_id: uuid.UUID, title: str, export_as: Literal["pptx", "pdf"]
 ) -> PresentationAndPath:
@@ -22,7 +27,7 @@ async def export_presentation(
         # Get the converted PPTX model from the Next.js service
         async with aiohttp.ClientSession() as session:
             async with session.get(
-                f"http://localhost/api/presentation_to_pptx_model?id={presentation_id}"
+                f"{_get_nextjs_base_url()}/api/presentation_to_pptx_model?id={presentation_id}"
             ) as response:
                 if response.status != 200:
                     error_text = await response.text()
@@ -53,7 +58,7 @@ async def export_presentation(
     else:
         async with aiohttp.ClientSession() as session:
             async with session.post(
-                "http://localhost/api/export-as-pdf",
+                f"{_get_nextjs_base_url()}/api/export-as-pdf",
                 json={
                     "id": str(presentation_id),
                     "title": sanitize_filename(title or str(uuid.uuid4())),

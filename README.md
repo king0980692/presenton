@@ -56,6 +56,96 @@ Presenton gives you complete control over your AI presentation workflow. Choose 
   <img src="readme_assets/cloud-banner.png" height="350" alt="Presenton Logo" />
 </a>
 
+## Running Presenton (Without Docker)
+
+If you prefer to run Presenton without Docker, follow these steps:
+
+### Prerequisites
+
+- **Python 3.11+** with [uv](https://docs.astral.sh/uv/) package manager
+- **Node.js 18+** and npm
+- **Chrome/Chromium** (for PDF export via Puppeteer)
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/presenton/presenton.git
+cd presenton
+```
+
+### 2. Set Environment Variables
+
+Create a `.env` file or export the following environment variables:
+
+```bash
+# LLM Configuration (choose one)
+export LLM="ollama"                           # Options: openai, google, anthropic, ollama, custom
+export OLLAMA_URL="http://localhost:11434"    # Your Ollama server URL
+export OLLAMA_MODEL="llama3.1:8b"             # Model to use
+
+# Image Provider Configuration
+export IMAGE_PROVIDER="pexels"                # Options: dall-e-3, gemini_flash, pexels, pixabay
+export PEXELS_API_KEY="your-pexels-api-key"   # Required for pexels provider
+
+# Application Settings
+export CAN_CHANGE_KEYS="true"                 # Allow changing API keys in UI
+export APP_DATA_DIRECTORY="./app_data"        # Data storage directory
+export TEMP_DIRECTORY="/tmp/presenton"        # Temporary files directory
+
+# Optional: Puppeteer Chrome path (for PDF export)
+export PUPPETEER_EXECUTABLE_PATH="/path/to/chrome"
+```
+
+### 3. Install Dependencies
+
+```bash
+# Install Python dependencies
+cd servers/fastapi
+uv sync
+cd ../..
+
+# Install Node.js dependencies
+cd servers/nextjs
+npm install
+cd ../..
+```
+
+### 4. Start the Services
+
+You can start each service manually or use the provided `start.sh` script:
+
+**Option A: Using start.sh (Linux/macOS)**
+
+```bash
+chmod +x start.sh
+./start.sh
+```
+
+**Option B: Manual startup**
+
+```bash
+# Terminal 1: Start FastAPI backend
+cd servers/fastapi
+.venv/bin/python server.py --port 8000
+
+# Terminal 2: Start MCP Server (optional)
+cd servers/fastapi
+.venv/bin/python mcp_server.py --port 8001
+
+# Terminal 3: Start Next.js frontend
+cd servers/nextjs
+npm run dev -- -H 0.0.0.0 -p 3000
+```
+
+### 5. Access Presenton
+
+- **Frontend**: http://localhost:3000
+- **API**: http://localhost:8000
+- **API Docs**: http://localhost:8000/docs
+- **MCP Server**: http://localhost:8001
+
+---
+
 ## Running Presenton Docker
 
 #### 1. Start Presenton

@@ -134,6 +134,7 @@ class LLMClient:
         return AsyncOpenAI(
             base_url=(get_ollama_url_env() or "http://localhost:11434") + "/v1",
             api_key="ollama",
+            default_headers={"User-Agent": "curl/7.68.0"},
         )
 
     def _get_custom_client(self):

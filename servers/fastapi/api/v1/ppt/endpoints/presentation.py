@@ -16,6 +16,7 @@ from constants.presentation import DEFAULT_TEMPLATES
 from enums.webhook_event import WebhookEvent
 from models.api_error_model import APIErrorModel
 from models.generate_presentation_request import GeneratePresentationRequest
+from models.import_presentation_request import ImportPresentationRequest, ImportSlideContent
 from models.presentation_and_path import PresentationPathAndEditPath
 from models.presentation_from_template import EditPresentationRequest
 from models.presentation_outline_model import (
@@ -25,6 +26,7 @@ from models.presentation_outline_model import (
 from enums.tone import Tone
 from enums.verbosity import Verbosity
 from models.pptx_models import PptxPresentationModel
+from pydantic import BaseModel
 from models.presentation_layout import PresentationLayoutModel
 from models.presentation_structure_model import PresentationStructureModel
 from models.presentation_with_slides import (
@@ -949,3 +951,115 @@ async def derive_presentation_from_existing_one(
         **presentation_and_path.model_dump(),
         edit_path=f"/presentation?id={new_presentation.id}",
     )
+
+
+class ImportPresentationResponse(BaseModel):
+    """Response for import presentation endpoint"""
+    presentation_id: uuid.UUID
+    edit_url: str
+    export_path: Optional[str] = None
+
+
+@PRESENTATION_ROUTER.post("/import", response_model=ImportPresentationResponse)
+async def import_presentation(
+    request: ImportPresentationRequest,
+    sql_session: AsyncSession = Depends(get_async_session),
+):
+    """
+    直接匯入簡報內容，不經過 LLM 生成。
+
+    這個 endpoint 允許你：
+    1. 提供自己的內容
+    2. 內容會存到資料庫
+    3. 可以用網頁介面 /presentation?id=xxx 編輯
+
+    使用方式：
+    1. 先用 GET /api/template?group=general 查看可用的 layout
+    2. 根據 layout 的 json_schema 準備內容
+    3. POST 到這個 endpoint
+    """
+    try:
+        # 取得 template layout
+        layout_model = await get_layout_by_name(request.template)
+
+        # 建立 layout ID 到 index 的對照表
+        layout_id_to_index = {
+            slide.id: index for index, slide in enumerate(layout_model.slides)
+        }
+
+        # 驗證所有 slide 的 layout_id 都存在
+        for i, slide_content in enumerate(request.slides):
+            if slide_content.layout_id not in layout_id_to_index:
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"Slide {i}: layout_id '{slide_content.layout_id}' not found in template '{request.template}'"
+                )
+
+        # 建立 presentation structure
+        presentation_structure = PresentationStructureModel(
+            slides=[layout_id_to_index[s.layout_id] for s in request.slides]
+        )
+
+        # 建立 outlines (用於儲存，雖然不需要 LLM 生成)
+        presentation_outlines = PresentationOutlineModel(
+            slides=[
+                SlideOutlineModel(content=json.dumps(s.content, ensure_ascii=False))
+                for s in request.slides
+            ]
+        )
+
+        # 建立 PresentationModel
+        presentation_id = uuid.uuid4()
+        presentation = PresentationModel(
+            id=presentation_id,
+            content=request.title,
+            n_slides=len(request.slides),
+            language=request.language,
+            title=request.title,
+            outlines=presentation_outlines.model_dump(),
+            layout=layout_model.model_dump(),
+            structure=presentation_structure.model_dump(),
+        )
+
+        # 建立 SlideModel 列表
+        slides: List[SlideModel] = []
+        for i, slide_content in enumerate(request.slides):
+            layout_index = layout_id_to_index[slide_content.layout_id]
+            slide_layout = layout_model.slides[layout_index]
+
+            slide = SlideModel(
+                presentation=presentation_id,
+                layout_group=layout_model.name,
+                layout=slide_layout.id,
+                index=i,
+                speaker_note=slide_content.speaker_note,
+                content=slide_content.content,
+            )
+            slides.append(slide)
+
+        # 儲存到資料庫
+        sql_session.add(presentation)
+        sql_session.add_all(slides)
+        await sql_session.commit()
+
+        # 如果需要匯出
+        export_path = None
+        if request.export_as:
+            presentation_and_path = await export_presentation(
+                presentation_id,
+                presentation.title or str(uuid.uuid4()),
+                request.export_as,
+            )
+            export_path = presentation_and_path.path
+
+        return ImportPresentationResponse(
+            presentation_id=presentation_id,
+            edit_url=f"/presentation?id={presentation_id}",
+            export_path=export_path,
+        )
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Import failed: {str(e)}")

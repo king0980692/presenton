@@ -4,7 +4,10 @@ from models.presentation_layout import PresentationLayoutModel
 from typing import List
 
 async def get_layout_by_name(layout_name: str) -> PresentationLayoutModel:
-    url = f"http://localhost/api/template?group={layout_name}"
+    # Use port 3000 for Next.js dev server, or port 80 for nginx in production
+    import os
+    port = os.getenv("NEXTJS_PORT", "3000")
+    url = f"http://localhost:{port}/api/template?group={layout_name}"
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
             if response.status != 200:
