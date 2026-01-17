@@ -45,15 +45,16 @@ async def export_presentation(
         await pptx_creator.create_ppt()
 
         export_directory = get_exports_directory()
-        pptx_path = os.path.join(
-            export_directory,
-            f"{sanitize_filename(title or str(uuid.uuid4()))}.pptx",
-        )
+        filename = f"{sanitize_filename(title or str(uuid.uuid4()))}.pptx"
+        pptx_path = os.path.join(export_directory, filename)
         pptx_creator.save(pptx_path)
+
+        # Return URL path instead of file system path
+        url_path = f"/app_data/exports/{filename}"
 
         return PresentationAndPath(
             presentation_id=presentation_id,
-            path=pptx_path,
+            path=url_path,
         )
     else:
         async with aiohttp.ClientSession() as session:

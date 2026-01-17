@@ -89,16 +89,20 @@ export async function POST(req: NextRequest) {
       status: 500,
     });
   }
+  const filename = `${sanitizedTitle}.pdf`;
   const destinationPath = path.join(
     appDataDirectory,
     "exports",
-    `${sanitizedTitle}.pdf`
+    filename
   );
   await fs.promises.mkdir(path.dirname(destinationPath), { recursive: true });
   await fs.promises.writeFile(destinationPath, pdfBuffer);
 
+  // Return URL path instead of file system path
+  const urlPath = `/app_data/exports/${filename}`;
+
   return NextResponse.json({
     success: true,
-    path: destinationPath,
+    path: urlPath,
   });
 }
