@@ -123,8 +123,22 @@ chmod +x start.sh
 ./start.sh
 ```
 
-**Option B: Manual startup**
+**Option B: Using start.ps1 (Windows PowerShell)**
 
+```powershell
+.\start.ps1
+```
+
+The PowerShell script will automatically:
+- Create the `app_data` directory if it doesn't exist
+- Create `user_config.json` with default configuration
+- Set all required environment variables
+- Install dependencies if needed
+- Start all services (FastAPI, MCP, Next.js)
+
+**Option C: Manual startup**
+
+Linux/macOS:
 ```bash
 # Terminal 1: Start FastAPI backend
 cd servers/fastapi
@@ -136,6 +150,31 @@ cd servers/fastapi
 
 # Terminal 3: Start Next.js frontend
 cd servers/nextjs
+npm run dev -- -H 0.0.0.0 -p 3001
+```
+
+Windows (PowerShell):
+```powershell
+# Create required directories first
+mkdir app_data -ErrorAction SilentlyContinue
+
+# Set environment variables
+$env:APP_DATA_DIRECTORY = "$PWD\app_data"
+$env:USER_CONFIG_PATH = "$PWD\app_data\user_config.json"
+$env:TEMP_DIRECTORY = "$env:TEMP\presenton"
+$env:CAN_CHANGE_KEYS = "true"
+$env:NEXTJS_PORT = "3001"
+
+# Terminal 1: Start FastAPI backend
+cd servers\fastapi
+uv run server.py --port 8003
+
+# Terminal 2: Start MCP Server (optional)
+cd servers\fastapi
+uv run mcp_server.py --port 9001
+
+# Terminal 3: Start Next.js frontend
+cd servers\nextjs
 npm run dev -- -H 0.0.0.0 -p 3001
 ```
 
