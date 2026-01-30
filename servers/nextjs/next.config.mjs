@@ -9,15 +9,15 @@ const nextConfig = {
     return [
       {
         source: '/api/v1/:path*',
-        destination: 'http://localhost:8003/api/v1/:path*',
+        destination: 'http://localhost:11003/api/v1/:path*',
       },
       {
         source: '/app_data/:path*',
-        destination: 'http://localhost:8003/app_data/:path*',
+        destination: 'http://localhost:11003/app_data/:path*',
       },
       {
         source: '/static/:path*',
-        destination: 'http://localhost:8003/static/:path*',
+        destination: 'http://localhost:11003/static/:path*',
       },
     ];
   },
