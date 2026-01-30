@@ -45,7 +45,8 @@ if (-not (Test-Path $env:USER_CONFIG_PATH)) {
   "PEXELS_API_KEY": "6o9do1Pcf3wAjdGDWjC9HWZsU1m9wph3d2aixCiN48QTwKbdRy69CFP7"
 }
 "@
-    $configContent | Set-Content -Path $env:USER_CONFIG_PATH -Encoding UTF8
+    # Write UTF-8 without BOM
+    [System.IO.File]::WriteAllText($env:USER_CONFIG_PATH, $configContent)
     Write-Host "Created config: $env:USER_CONFIG_PATH" -ForegroundColor Green
 }
 
