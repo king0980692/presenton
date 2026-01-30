@@ -90,7 +90,9 @@ export PEXELS_API_KEY="your-pexels-api-key"   # Required for pexels provider
 # Application Settings
 export CAN_CHANGE_KEYS="true"                 # Allow changing API keys in UI
 export APP_DATA_DIRECTORY="./app_data"        # Data storage directory
+export USER_CONFIG_PATH="./app_data/user_config.json"  # User config file path
 export TEMP_DIRECTORY="/tmp/presenton"        # Temporary files directory
+export NEXTJS_PORT="3001"                     # Next.js frontend port
 
 # Optional: Puppeteer Chrome path (for PDF export)
 export PUPPETEER_EXECUTABLE_PATH="/path/to/chrome"
@@ -126,23 +128,23 @@ chmod +x start.sh
 ```bash
 # Terminal 1: Start FastAPI backend
 cd servers/fastapi
-.venv/bin/python server.py --port 8000
+.venv/bin/python server.py --port 8003
 
 # Terminal 2: Start MCP Server (optional)
 cd servers/fastapi
-.venv/bin/python mcp_server.py --port 8001
+.venv/bin/python mcp_server.py --port 9001
 
 # Terminal 3: Start Next.js frontend
 cd servers/nextjs
-npm run dev -- -H 0.0.0.0 -p 3000
+npm run dev -- -H 0.0.0.0 -p 3001
 ```
 
 ### 5. Access Presenton
 
-- **Frontend**: http://localhost:3000
-- **API**: http://localhost:8000
-- **API Docs**: http://localhost:8000/docs
-- **MCP Server**: http://localhost:8001
+- **Frontend**: http://localhost:3001
+- **API**: http://localhost:8003
+- **API Docs**: http://localhost:8003/docs
+- **MCP Server**: http://localhost:9001
 
 ---
 
