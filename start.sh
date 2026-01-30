@@ -26,10 +26,11 @@ export OLLAMA_URL="http://llm.leonthepro.space"
 export OLLAMA_MODEL="llama3.1:8b"
 export IMAGE_PROVIDER="pexels"
 export PEXELS_API_KEY="6o9do1Pcf3wAjdGDWjC9HWZsU1m9wph3d2aixCiN48QTwKbdRy69CFP7"
-export CAN_CHANGE_KEYS="false"
+export CAN_CHANGE_KEYS="true"
 export APP_DATA_DIRECTORY="$SCRIPT_DIR/app_data"
+export USER_CONFIG_PATH="$SCRIPT_DIR/app_data/user_config.json"
 export TEMP_DIRECTORY="/tmp/presenton"
-export NEXTJS_PORT="3000"
+export NEXTJS_PORT="3001"
 export PUPPETEER_EXECUTABLE_PATH="$HOME/.cache/puppeteer/chrome/linux-143.0.7499.192/chrome-linux64/chrome"
 
 # Python 虛擬環境路徑
@@ -120,27 +121,27 @@ install_node_deps() {
 
 # 啟動 FastAPI 後端
 start_fastapi() {
-    echo -e "${BLUE}啟動 FastAPI 後端 (port 8000)...${NC}"
+    echo -e "${BLUE}啟動 FastAPI 後端 (port 8003)...${NC}"
     cd "$SCRIPT_DIR/servers/fastapi"
-    "$PYTHON" server.py --port 8000 --reload true &
+    "$PYTHON" server.py --port 8003 --reload true &
     PIDS+=($!)
     cd "$SCRIPT_DIR"
 }
 
 # 啟動 MCP Server
 start_mcp() {
-    echo -e "${BLUE}啟動 MCP Server (port 8001)...${NC}"
+    echo -e "${BLUE}啟動 MCP Server (port 9001)...${NC}"
     cd "$SCRIPT_DIR/servers/fastapi"
-    "$PYTHON" mcp_server.py --port 8001 &
+    "$PYTHON" mcp_server.py --port 9001 &
     PIDS+=($!)
     cd "$SCRIPT_DIR"
 }
 
 # 啟動 Next.js 前端
 start_nextjs() {
-    echo -e "${BLUE}啟動 Next.js 前端 (port 3000)...${NC}"
+    echo -e "${BLUE}啟動 Next.js 前端 (port 3001)...${NC}"
     cd "$SCRIPT_DIR/servers/nextjs"
-    npm run dev -- -H 0.0.0.0 -p 3000 &
+    npm run dev -- -H 0.0.0.0 -p 3001 &
     PIDS+=($!)
     cd "$SCRIPT_DIR"
 }
@@ -167,10 +168,10 @@ main() {
     echo -e "${GREEN}     所有服務已啟動!${NC}"
     echo -e "${GREEN}========================================${NC}"
     echo ""
-    echo -e "前端: ${BLUE}http://localhost:3000${NC}"
-    echo -e "API:  ${BLUE}http://localhost:8000${NC}"
-    echo -e "API 文檔: ${BLUE}http://localhost:8000/docs${NC}"
-    echo -e "MCP:  ${BLUE}http://localhost:8001${NC}"
+    echo -e "前端: ${BLUE}http://localhost:3001${NC}"
+    echo -e "API:  ${BLUE}http://localhost:8003${NC}"
+    echo -e "API 文檔: ${BLUE}http://localhost:8003/docs${NC}"
+    echo -e "MCP:  ${BLUE}http://localhost:9001${NC}"
     echo ""
     echo -e "${YELLOW}按 Ctrl+C 停止所有服務${NC}"
     echo ""
