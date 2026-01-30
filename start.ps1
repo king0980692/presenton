@@ -36,14 +36,16 @@ if (-not (Test-Path $env:TEMP_DIRECTORY)) {
 
 # 建立 user_config.json (如果不存在)
 if (-not (Test-Path $env:USER_CONFIG_PATH)) {
-    $config = @{
-        LLM = "ollama"
-        OLLAMA_URL = "http://llm.leonthepro.space"
-        OLLAMA_MODEL = "llama3.1:8b"
-        IMAGE_PROVIDER = "pexels"
-        PEXELS_API_KEY = "6o9do1Pcf3wAjdGDWjC9HWZsU1m9wph3d2aixCiN48QTwKbdRy69CFP7"
-    }
-    $config | ConvertTo-Json | Set-Content -Path $env:USER_CONFIG_PATH -Encoding UTF8
+    $configContent = @"
+{
+  "LLM": "ollama",
+  "OLLAMA_URL": "http://llm.leonthepro.space",
+  "OLLAMA_MODEL": "llama3.1:8b",
+  "IMAGE_PROVIDER": "pexels",
+  "PEXELS_API_KEY": "6o9do1Pcf3wAjdGDWjC9HWZsU1m9wph3d2aixCiN48QTwKbdRy69CFP7"
+}
+"@
+    $configContent | Set-Content -Path $env:USER_CONFIG_PATH -Encoding UTF8
     Write-Host "已建立設定檔: $env:USER_CONFIG_PATH" -ForegroundColor Green
 }
 
@@ -62,9 +64,9 @@ Write-Host "檢查依賴..." -ForegroundColor Yellow
 $deps = @("uv", "node", "npm")
 foreach ($dep in $deps) {
     if (Get-Command $dep -ErrorAction SilentlyContinue) {
-        Write-Host "√ $dep 已安裝" -ForegroundColor Green
+        Write-Host "[OK] $dep 已安裝" -ForegroundColor Green
     } else {
-        Write-Host "錯誤: $dep 未安裝" -ForegroundColor Red
+        Write-Host "[ERROR] $dep 未安裝" -ForegroundColor Red
         exit 1
     }
 }
@@ -72,7 +74,7 @@ Write-Host ""
 
 # 安裝 Python 依賴
 Write-Host "檢查 Python 依賴..." -ForegroundColor Yellow
-Set-Location "$ScriptDir\servers\fastapi"
+Push-Location "$ScriptDir\servers\fastapi"
 
 if (-not (Test-Path ".venv")) {
     Write-Host "建立虛擬環境並安裝依賴..."
@@ -80,11 +82,11 @@ if (-not (Test-Path ".venv")) {
 } else {
     Write-Host "Python 虛擬環境已存在"
 }
-Set-Location $ScriptDir
+Pop-Location
 
 # 安裝 Node.js 依賴
 Write-Host "檢查 Node.js 依賴..." -ForegroundColor Yellow
-Set-Location "$ScriptDir\servers\nextjs"
+Push-Location "$ScriptDir\servers\nextjs"
 
 if (-not (Test-Path "node_modules")) {
     Write-Host "安裝 npm 依賴..."
@@ -92,58 +94,33 @@ if (-not (Test-Path "node_modules")) {
 } else {
     Write-Host "npm 依賴已存在"
 }
-Set-Location $ScriptDir
+Pop-Location
 
 Write-Host ""
 Write-Host "啟動服務..." -ForegroundColor Yellow
 Write-Host ""
 
 # 儲存進程
-$jobs = @()
+$processes = @()
 
 # 啟動 FastAPI 後端
 Write-Host "啟動 FastAPI 後端 (port 8003)..." -ForegroundColor Blue
-$jobs += Start-Job -ScriptBlock {
-    Set-Location $using:ScriptDir\servers\fastapi
-    $env:LLM = $using:env:LLM
-    $env:OLLAMA_URL = $using:env:OLLAMA_URL
-    $env:OLLAMA_MODEL = $using:env:OLLAMA_MODEL
-    $env:IMAGE_PROVIDER = $using:env:IMAGE_PROVIDER
-    $env:PEXELS_API_KEY = $using:env:PEXELS_API_KEY
-    $env:CAN_CHANGE_KEYS = $using:env:CAN_CHANGE_KEYS
-    $env:APP_DATA_DIRECTORY = $using:env:APP_DATA_DIRECTORY
-    $env:USER_CONFIG_PATH = $using:env:USER_CONFIG_PATH
-    $env:TEMP_DIRECTORY = $using:env:TEMP_DIRECTORY
-    uv run server.py --port 8003
-}
+$fastapi = Start-Process -FilePath "uv" -ArgumentList "run", "server.py", "--port", "8003" -WorkingDirectory "$ScriptDir\servers\fastapi" -PassThru -NoNewWindow
+$processes += $fastapi
 
 Start-Sleep -Seconds 2
 
 # 啟動 MCP Server
 Write-Host "啟動 MCP Server (port 9001)..." -ForegroundColor Blue
-$jobs += Start-Job -ScriptBlock {
-    Set-Location $using:ScriptDir\servers\fastapi
-    $env:LLM = $using:env:LLM
-    $env:OLLAMA_URL = $using:env:OLLAMA_URL
-    $env:OLLAMA_MODEL = $using:env:OLLAMA_MODEL
-    $env:IMAGE_PROVIDER = $using:env:IMAGE_PROVIDER
-    $env:PEXELS_API_KEY = $using:env:PEXELS_API_KEY
-    $env:CAN_CHANGE_KEYS = $using:env:CAN_CHANGE_KEYS
-    $env:APP_DATA_DIRECTORY = $using:env:APP_DATA_DIRECTORY
-    $env:USER_CONFIG_PATH = $using:env:USER_CONFIG_PATH
-    $env:TEMP_DIRECTORY = $using:env:TEMP_DIRECTORY
-    uv run mcp_server.py --port 9001
-}
+$mcp = Start-Process -FilePath "uv" -ArgumentList "run", "mcp_server.py", "--port", "9001" -WorkingDirectory "$ScriptDir\servers\fastapi" -PassThru -NoNewWindow
+$processes += $mcp
 
 Start-Sleep -Seconds 1
 
 # 啟動 Next.js 前端
 Write-Host "啟動 Next.js 前端 (port 3001)..." -ForegroundColor Blue
-$jobs += Start-Job -ScriptBlock {
-    Set-Location $using:ScriptDir\servers\nextjs
-    $env:NEXTJS_PORT = "3001"
-    npm run dev -- -H 0.0.0.0 -p 3001
-}
+$nextjs = Start-Process -FilePath "npm" -ArgumentList "run", "dev", "--", "-H", "0.0.0.0", "-p", "3001" -WorkingDirectory "$ScriptDir\servers\nextjs" -PassThru -NoNewWindow
+$processes += $nextjs
 
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Green
@@ -158,24 +135,26 @@ Write-Host ""
 Write-Host "按 Ctrl+C 停止所有服務" -ForegroundColor Yellow
 Write-Host ""
 
-# 顯示服務輸出
+# 等待並處理退出
 try {
     while ($true) {
-        foreach ($job in $jobs) {
-            Receive-Job -Job $job -ErrorAction SilentlyContinue
-        }
         Start-Sleep -Seconds 1
 
-        # 檢查是否有任何 job 失敗
-        $failedJobs = $jobs | Where-Object { $_.State -eq "Failed" }
-        if ($failedJobs) {
-            Write-Host "有服務發生錯誤" -ForegroundColor Red
+        # 檢查是否有進程結束
+        $exited = $processes | Where-Object { $_.HasExited }
+        if ($exited) {
+            Write-Host "有服務已停止" -ForegroundColor Red
             break
         }
     }
-} finally {
+}
+finally {
     Write-Host ""
     Write-Host "正在停止所有服務..." -ForegroundColor Yellow
-    $jobs | Stop-Job -PassThru | Remove-Job
+    foreach ($proc in $processes) {
+        if (-not $proc.HasExited) {
+            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+        }
+    }
     Write-Host "所有服務已停止" -ForegroundColor Green
 }
