@@ -21,7 +21,7 @@ $env:CAN_CHANGE_KEYS = "true"
 $env:APP_DATA_DIRECTORY = "$ScriptDir\app_data"
 $env:USER_CONFIG_PATH = "$ScriptDir\app_data\user_config.json"
 $env:TEMP_DIRECTORY = "$env:TEMP\presenton"
-$env:NEXTJS_PORT = "3001"
+$env:NEXTJS_PORT = "11001"
 
 # Create required directories
 if (-not (Test-Path $env:APP_DATA_DIRECTORY)) {
@@ -104,8 +104,8 @@ Write-Host ""
 $processes = @()
 
 # Start FastAPI backend
-Write-Host "Starting FastAPI backend (port 8003)..." -ForegroundColor Blue
-$fastapi = Start-Process -FilePath "cmd.exe" -ArgumentList "/c", "uv run server.py --port 8003" -WorkingDirectory "$ScriptDir\servers\fastapi" -PassThru
+Write-Host "Starting FastAPI backend (port 11003)..." -ForegroundColor Blue
+$fastapi = Start-Process -FilePath "cmd.exe" -ArgumentList "/c", "uv run server.py --port 11003" -WorkingDirectory "$ScriptDir\servers\fastapi" -PassThru
 $processes += $fastapi
 
 Start-Sleep -Seconds 2
@@ -118,8 +118,8 @@ $processes += $mcp
 Start-Sleep -Seconds 1
 
 # Start Next.js frontend
-Write-Host "Starting Next.js frontend (port 3001)..." -ForegroundColor Blue
-$nextjs = Start-Process -FilePath "cmd.exe" -ArgumentList "/c", "npm run dev -- -H 0.0.0.0 -p 3001" -WorkingDirectory "$ScriptDir\servers\nextjs" -PassThru
+Write-Host "Starting Next.js frontend (port 11001)..." -ForegroundColor Blue
+$nextjs = Start-Process -FilePath "cmd.exe" -ArgumentList "/c", "npm run dev -- -H 0.0.0.0 -p 11001" -WorkingDirectory "$ScriptDir\servers\nextjs" -PassThru
 $processes += $nextjs
 
 Write-Host ""
@@ -127,9 +127,9 @@ Write-Host "========================================" -ForegroundColor Green
 Write-Host "     All services started!" -ForegroundColor Green
 Write-Host "========================================" -ForegroundColor Green
 Write-Host ""
-Write-Host "Frontend: http://localhost:3001" -ForegroundColor Cyan
-Write-Host "API:      http://localhost:8003" -ForegroundColor Cyan
-Write-Host "API Docs: http://localhost:8003/docs" -ForegroundColor Cyan
+Write-Host "Frontend: http://localhost:11001" -ForegroundColor Cyan
+Write-Host "API:      http://localhost:11003" -ForegroundColor Cyan
+Write-Host "API Docs: http://localhost:11003/docs" -ForegroundColor Cyan
 Write-Host "MCP:      http://localhost:9001" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Press Ctrl+C to stop all services" -ForegroundColor Yellow
