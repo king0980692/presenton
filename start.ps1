@@ -105,21 +105,21 @@ $processes = @()
 
 # Start FastAPI backend
 Write-Host "Starting FastAPI backend (port 8003)..." -ForegroundColor Blue
-$fastapi = Start-Process -FilePath "uv" -ArgumentList "run", "server.py", "--port", "8003" -WorkingDirectory "$ScriptDir\servers\fastapi" -PassThru -NoNewWindow
+$fastapi = Start-Process -FilePath "cmd.exe" -ArgumentList "/c", "uv run server.py --port 8003" -WorkingDirectory "$ScriptDir\servers\fastapi" -PassThru
 $processes += $fastapi
 
 Start-Sleep -Seconds 2
 
 # Start MCP Server
 Write-Host "Starting MCP Server (port 9001)..." -ForegroundColor Blue
-$mcp = Start-Process -FilePath "uv" -ArgumentList "run", "mcp_server.py", "--port", "9001" -WorkingDirectory "$ScriptDir\servers\fastapi" -PassThru -NoNewWindow
+$mcp = Start-Process -FilePath "cmd.exe" -ArgumentList "/c", "uv run mcp_server.py --port 9001" -WorkingDirectory "$ScriptDir\servers\fastapi" -PassThru
 $processes += $mcp
 
 Start-Sleep -Seconds 1
 
 # Start Next.js frontend
 Write-Host "Starting Next.js frontend (port 3001)..." -ForegroundColor Blue
-$nextjs = Start-Process -FilePath "npm" -ArgumentList "run", "dev", "--", "-H", "0.0.0.0", "-p", "3001" -WorkingDirectory "$ScriptDir\servers\nextjs" -PassThru -NoNewWindow
+$nextjs = Start-Process -FilePath "cmd.exe" -ArgumentList "/c", "npm run dev -- -H 0.0.0.0 -p 3001" -WorkingDirectory "$ScriptDir\servers\nextjs" -PassThru
 $processes += $nextjs
 
 Write-Host ""
