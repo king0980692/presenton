@@ -1,0 +1,24 @@
+{
+  "themeId": "dark",
+  "themeName": "Dark",
+  "colors": {
+    "primary": "#8B5CF6",
+    "secondary": "#1E1B2E",
+    "tertiary": "#2D2640",
+    "background": "#0F0D1A",
+    "headingText": "#F3F4F6",
+    "bodyText": "#9CA3AF"
+  },
+  "fonts": {
+    "heading": { "family": "Inter", "weight": 600 },
+    "body": { "family": "Inter", "weight": 400 },
+    "sizes": { "h1": 48, "h2": 36, "h3": 24, "body": 16, "caption": 12 }
+  },
+  "spacing": {
+    "preset": "normal",
+    "baseUnit": 8,
+    "lineHeight": 1.6,
+    "paragraphGap": 20
+  },
+  "background": { "type": "solid", "value": "#0F0D1A" }
+}

@@ -1008,6 +1008,14 @@ async def import_presentation(
             ]
         )
 
+        # Validate theme if provided
+        if request.theme:
+            from models.theme_model import ThemeModel as ThemeValidator
+            try:
+                ThemeValidator(**request.theme)
+            except Exception as e:
+                raise HTTPException(status_code=400, detail=f"Invalid theme: {str(e)}")
+
         # 建立 PresentationModel
         presentation_id = uuid.uuid4()
         presentation = PresentationModel(
@@ -1019,6 +1027,7 @@ async def import_presentation(
             outlines=presentation_outlines.model_dump(),
             layout=layout_model.model_dump(),
             structure=presentation_structure.model_dump(),
+            theme=request.theme,
         )
 
         # 建立 SlideModel 列表

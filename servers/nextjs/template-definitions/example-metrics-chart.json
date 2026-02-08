@@ -1,0 +1,64 @@
+{
+  "templateName": "custom",
+  "layoutId": "metrics-with-chart",
+  "layoutName": "Metrics with Chart",
+  "layoutDescription": "A slide showing key metrics on the left and a chart visualization on the right",
+
+  "structure": {
+    "type": "two-column",
+    "columns": [
+      {
+        "width": "45%",
+        "justify": "center",
+        "elements": [
+          {
+            "type": "heading",
+            "field": "title",
+            "level": 1,
+            "maxWords": 6,
+            "defaultValue": "Performance Overview"
+          },
+          {
+            "type": "text",
+            "field": "description",
+            "maxWords": 30,
+            "defaultValue": "Our key performance indicators show consistent growth across all metrics."
+          },
+          {
+            "type": "spacer",
+            "height": 30
+          },
+          {
+            "type": "metrics",
+            "field": "metrics",
+            "max": 3,
+            "defaultValue": [
+              { "value": "98%", "label": "Uptime", "description": "System reliability" },
+              { "value": "2.5M", "label": "Users", "description": "Active monthly" },
+              { "value": "150%", "label": "Growth", "description": "Year over year" }
+            ]
+          }
+        ]
+      },
+      {
+        "width": "55%",
+        "justify": "center",
+        "background": "var(--secondary-accent-color, #F3F4F6)",
+        "elements": [
+          {
+            "type": "chart",
+            "field": "chart",
+            "chartTypes": ["bar", "line", "pie"],
+            "defaultType": "bar"
+          }
+        ]
+      }
+    ],
+    "gap": 0
+  },
+
+  "style": {
+    "fontFamily": "Inter",
+    "backgroundColor": "#FFFFFF"
+  }
+}

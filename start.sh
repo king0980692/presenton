@@ -30,7 +30,7 @@ export CAN_CHANGE_KEYS="true"
 export APP_DATA_DIRECTORY="$SCRIPT_DIR/app_data"
 export USER_CONFIG_PATH="$SCRIPT_DIR/app_data/user_config.json"
 export TEMP_DIRECTORY="/tmp/presenton"
-export NEXTJS_PORT="3001"
+export NEXTJS_PORT="11001"
 export PUPPETEER_EXECUTABLE_PATH="$HOME/.cache/puppeteer/chrome/linux-143.0.7499.192/chrome-linux64/chrome"
 
 # Python 虛擬環境路徑
@@ -121,9 +121,9 @@ install_node_deps() {
 
 # 啟動 FastAPI 後端
 start_fastapi() {
-    echo -e "${BLUE}啟動 FastAPI 後端 (port 8003)...${NC}"
+    echo -e "${BLUE}啟動 FastAPI 後端 (port 11003)...${NC}"
     cd "$SCRIPT_DIR/servers/fastapi"
-    "$PYTHON" server.py --port 8003 --reload true &
+    "$PYTHON" server.py --port 11003 --reload true &
     PIDS+=($!)
     cd "$SCRIPT_DIR"
 }
@@ -139,9 +139,10 @@ start_mcp() {
 
 # 啟動 Next.js 前端
 start_nextjs() {
-    echo -e "${BLUE}啟動 Next.js 前端 (port 3001)...${NC}"
+    echo -e "${BLUE}啟動 Next.js 前端 (port 11001)...${NC}"
     cd "$SCRIPT_DIR/servers/nextjs"
-    npm run dev -- -H 0.0.0.0 -p 3001 &
+    rm -rf .next-build
+    npm run dev -- -H 0.0.0.0 -p 11001 &
     PIDS+=($!)
     cd "$SCRIPT_DIR"
 }
@@ -168,9 +169,9 @@ main() {
     echo -e "${GREEN}     所有服務已啟動!${NC}"
     echo -e "${GREEN}========================================${NC}"
     echo ""
-    echo -e "前端: ${BLUE}http://localhost:3001${NC}"
-    echo -e "API:  ${BLUE}http://localhost:8003${NC}"
-    echo -e "API 文檔: ${BLUE}http://localhost:8003/docs${NC}"
+    echo -e "前端: ${BLUE}http://localhost:11001${NC}"
+    echo -e "API:  ${BLUE}http://localhost:11003${NC}"
+    echo -e "API 文檔: ${BLUE}http://localhost:11003/docs${NC}"
     echo -e "MCP:  ${BLUE}http://localhost:9001${NC}"
     echo ""
     echo -e "${YELLOW}按 Ctrl+C 停止所有服務${NC}"

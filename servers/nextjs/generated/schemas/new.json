@@ -1,0 +1,3874 @@
+{
+  "name": "new",
+  "ordered": false,
+  "slides": [
+    {
+      "id": "new:general-basic-info-slide",
+      "name": "Basic Info",
+      "description": "A clean slide layout with title, description text, and a supporting image.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 40
+          },
+          "description": {
+            "description": "Main description text content",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 150
+          },
+          "image": {
+            "description": "Supporting image for the slide",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 50
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "image"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:general-bullet-icons-only-slide",
+      "name": "Bullet Icons Only",
+      "description": "A slide layout with title, grid of bullet points (title and description) with icons, and a supporting image.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 40
+          },
+          "image": {
+            "description": "Supporting image for the slide",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 50
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "bulletPoints": {
+            "description": "List of bullet points with icons and optional subtitles",
+            "minItems": 2,
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Bullet point title",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 80
+                },
+                "subtitle": {
+                  "description": "Optional short subtitle or brief explanation",
+                  "type": "string",
+                  "minLength": 5,
+                  "maxLength": 150
+                },
+                "icon": {
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "description": "URL to icon",
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "type": "string",
+                      "minLength": 5,
+                      "maxLength": 20
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "title",
+                "icon"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "title",
+          "image",
+          "bulletPoints"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:general-bullet-with-icons-slide",
+      "name": "Bullet with Icons",
+      "description": "A bullets style slide with main content, supporting image, and bullet points with icons and descriptions.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 40
+          },
+          "description": {
+            "description": "Main description text explaining the problem or topic",
+            "type": "string",
+            "maxLength": 150
+          },
+          "image": {
+            "description": "Supporting image for the slide",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 50
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "bulletPoints": {
+            "description": "List of bullet points with icons and descriptions",
+            "minItems": 1,
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Bullet point title",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 60
+                },
+                "description": {
+                  "description": "Bullet point description",
+                  "type": "string",
+                  "minLength": 10,
+                  "maxLength": 100
+                },
+                "icon": {
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "description": "URL to icon",
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "type": "string",
+                      "minLength": 5,
+                      "maxLength": 20
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "title",
+                "description",
+                "icon"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "image",
+          "bulletPoints"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:general-chart-with-bullets-slide",
+      "name": "Chart with Bullet Boxes",
+      "description": "A slide layout with title, description, chart on the left and colored bullet boxes with icons on the right. Only choose this if data is available.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 40
+          },
+          "description": {
+            "description": "Description text below the title",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 150
+          },
+          "chartData": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "const": "bar"
+                      },
+                      {
+                        "type": "string",
+                        "const": "pie"
+                      },
+                      {
+                        "type": "string",
+                        "const": "line"
+                      },
+                      {
+                        "type": "string",
+                        "const": "area"
+                      }
+                    ]
+                  },
+                  "data": {
+                    "minItems": 2,
+                    "maxItems": 5,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "description": "Data point name",
+                          "type": "string"
+                        },
+                        "value": {
+                          "description": "Data point value",
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "type",
+                  "data"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "scatter"
+                  },
+                  "data": {
+                    "minItems": 2,
+                    "maxItems": 20,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "description": "X coordinate",
+                          "type": "number"
+                        },
+                        "y": {
+                          "description": "Y coordinate",
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "type",
+                  "data"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "color": {
+            "description": "Primary color for chart elements",
+            "type": "string"
+          },
+          "showLegend": {
+            "description": "Whether to show chart legend",
+            "type": "boolean"
+          },
+          "showTooltip": {
+            "description": "Whether to show chart tooltip",
+            "type": "boolean"
+          },
+          "bulletPoints": {
+            "description": "List of bullet points with colored boxes and icons",
+            "minItems": 1,
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Bullet point title",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 80
+                },
+                "description": {
+                  "description": "Bullet point description",
+                  "type": "string",
+                  "minLength": 10,
+                  "maxLength": 150
+                },
+                "icon": {
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "description": "URL to icon",
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "type": "string",
+                      "minLength": 5,
+                      "maxLength": 20
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "title",
+                "description",
+                "icon"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "chartData",
+          "color",
+          "showLegend",
+          "showTooltip",
+          "bulletPoints"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:general-intro-slide",
+      "name": "Intro Slide",
+      "description": "A clean slide layout with title, description text, presenter info, and a supporting image.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 40
+          },
+          "description": {
+            "description": "Main description text content",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 150
+          },
+          "presenterName": {
+            "description": "Name of the presenter",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+          },
+          "presentationDate": {
+            "description": "Date of the presentation must be the latest date like today's date",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+          },
+          "image": {
+            "description": "Supporting image for the slide",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 50
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "presenterName",
+          "presentationDate",
+          "image"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:general-metrics-slide",
+      "name": "Metrics",
+      "description": "A slide layout for showcasing key business metrics with large numbers and descriptive text boxes. This should only be used with metrics and numbers.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 100
+          },
+          "metrics": {
+            "description": "List of key business metrics to display",
+            "minItems": 2,
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "description": "Metric label/title",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 50
+                },
+                "value": {
+                  "description": "Metric value (e.g., 150+, 95%, $2M). No long values. Keep simple number.",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 10
+                },
+                "description": {
+                  "description": "Detailed description of the metric. Explanation of the metric.",
+                  "type": "string",
+                  "minLength": 10,
+                  "maxLength": 150
+                }
+              },
+              "required": [
+                "label",
+                "value",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "title",
+          "metrics"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:general-metrics-with-image-slide",
+      "name": "Metrics with Image",
+      "description": "A slide layout with supporting image on the left and title, description, and metrics grid on the right. Can be used alternatively with MetricSlide.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 40
+          },
+          "description": {
+            "description": "Description text below the title",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 150
+          },
+          "image": {
+            "description": "Supporting image for the slide",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 50
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "metrics": {
+            "description": "List of key business metrics to display",
+            "minItems": 1,
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "description": "Metric label/title",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 100
+                },
+                "value": {
+                  "description": "Metric value (e.g., 200+, 95%, 50%)",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 20
+                }
+              },
+              "required": [
+                "label",
+                "value"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "image",
+          "metrics"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:general-numbered-bullets-slide",
+      "name": "Numbered Bullets",
+      "description": "A slide layout with large title, supporting image, and numbered bullet points with descriptions.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 40
+          },
+          "image": {
+            "description": "Supporting image for the slide",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 50
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "bulletPoints": {
+            "description": "List of numbered bullet points with descriptions",
+            "minItems": 1,
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Bullet point title",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 80
+                },
+                "description": {
+                  "description": "Bullet point description",
+                  "type": "string",
+                  "minLength": 10,
+                  "maxLength": 150
+                }
+              },
+              "required": [
+                "title",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "title",
+          "image",
+          "bulletPoints"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:general-quote-slide",
+      "name": "Quote",
+      "description": "A slide layout with a heading, inspirational quote, and background image with overlay for text visibility.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "heading": {
+            "description": "Main heading of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 60
+          },
+          "quote": {
+            "description": "The main quote text content",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 200
+          },
+          "author": {
+            "description": "Author of the quote",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+          },
+          "backgroundImage": {
+            "description": "Background image for the slide",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 50
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "heading",
+          "quote",
+          "author",
+          "backgroundImage"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:general-table-info-slide",
+      "name": "Table with Info",
+      "description": "A slide layout with a title at the top, structured table in the middle, and descriptive text at the bottom.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 40
+          },
+          "tableData": {
+            "description": "Table structure with headers and rows",
+            "type": "object",
+            "properties": {
+              "headers": {
+                "description": "Table column headers",
+                "minItems": 2,
+                "maxItems": 5,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 30
+                }
+              },
+              "rows": {
+                "description": "Table rows data - each row should match the number of headers",
+                "minItems": 2,
+                "maxItems": 6,
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 50
+                  }
+                }
+              }
+            },
+            "required": [
+              "headers",
+              "rows"
+            ],
+            "additionalProperties": false
+          },
+          "description": {
+            "description": "Descriptive text that appears below the table",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "title",
+          "tableData",
+          "description"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:general-table-of-contents-slide",
+      "name": "Table of Contents",
+      "description": "A professional table of contents layout with numbered sections, and page references. This should be right after introduction slide if ever used.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "sections": {
+            "description": "List of table of contents sections",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "number": {
+                  "description": "Section number",
+                  "type": "number",
+                  "minimum": 1
+                },
+                "title": {
+                  "description": "Section title",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "pageNumber": {
+                  "description": "Page number for this section",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 10
+                }
+              },
+              "required": [
+                "number",
+                "title",
+                "pageNumber"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "sections"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:general-team-slide",
+      "name": "Team Slide",
+      "description": "A slide layout showcasing team members with photos, names, positions, and descriptions alongside company information.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 40
+          },
+          "companyDescription": {
+            "description": "Company description or team introduction text",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 150
+          },
+          "teamMembers": {
+            "description": "List of team members with their information",
+            "minItems": 2,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "Team member's full name",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 50
+                },
+                "position": {
+                  "description": "Job title or position",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 50
+                },
+                "description": {
+                  "description": "Brief description of the team member (around 100 characters)",
+                  "type": "string",
+                  "maxLength": 150
+                },
+                "image": {
+                  "type": "object",
+                  "properties": {
+                    "__image_url__": {
+                      "description": "URL to image",
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "__image_prompt__": {
+                      "type": "string",
+                      "minLength": 10,
+                      "maxLength": 50
+                    }
+                  },
+                  "required": [
+                    "__image_url__",
+                    "__image_prompt__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name",
+                "position",
+                "description",
+                "image"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "title",
+          "companyDescription",
+          "teamMembers"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:modern-intro-pitchdeck-slide",
+      "name": "Intro Pitch Deck Slide",
+      "description": "A visually appealing introduction slide for a pitch deck, featuring a large title, company name, date, and contact information with a modern design. This Slide is always the first slide in a pitch deck, setting the tone for the presentation with a clean and professional look.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 15
+          },
+          "description": {
+            "description": "Description as per the design",
+            "type": "string"
+          },
+          "contactNumber": {
+            "description": "Contact phone number displayed in footer",
+            "type": "string"
+          },
+          "contactAddress": {
+            "description": "Contact address displayed in footer",
+            "type": "string"
+          },
+          "contactWebsite": {
+            "description": "Contact website URL displayed in footer",
+            "type": "string"
+          },
+          "companyName": {
+            "description": "Company name displayed in header",
+            "type": "string"
+          },
+          "date": {
+            "description": "Date of the presentation",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "contactNumber",
+          "contactAddress",
+          "contactWebsite",
+          "companyName",
+          "date"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:modern-about-company-slide",
+      "name": "About Our Company Slide",
+      "description": "A slide layout providing an overview of the company, its background, and key information.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 30
+          },
+          "content": {
+            "description": "Main content text describing the company or topic",
+            "type": "string",
+            "minLength": 25,
+            "maxLength": 400
+          },
+          "companyName": {
+            "description": "Company name displayed in header",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+          },
+          "date": {
+            "description": "Today Date displayed in header",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 30
+          },
+          "image": {
+            "description": "Optional supporting image for the slide (building, office, etc.)",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 50
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "content",
+          "companyName",
+          "date"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:modern-problem-statement-slide",
+      "name": "Problem Statement Slide",
+      "description": "A slide layout designed to present a clear problem statement, including categories of problems, company information, and an optional image.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title of the problem statement slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 20
+          },
+          "description": {
+            "description": "Main content text describing the problem statement",
+            "type": "string",
+            "minLength": 50,
+            "maxLength": 200
+          },
+          "problemCategories": {
+            "description": "List of problem categories with titles, descriptions, and optional icons",
+            "minItems": 2,
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Title of the problem category",
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 30
+                },
+                "description": {
+                  "description": "Description of the problem category",
+                  "type": "string",
+                  "minLength": 20,
+                  "maxLength": 100
+                },
+                "icon": {
+                  "description": "Optional icon for the problem category",
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "description": "URL to icon",
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "type": "string",
+                      "minLength": 5,
+                      "maxLength": 20
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "title",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "companyName": {
+            "description": "Company name displayed in header",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+          },
+          "date": {
+            "description": "Today Date displayed in header",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 30
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "problemCategories",
+          "companyName",
+          "date"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:modern-solution-slide",
+      "name": "Solution Slide",
+      "description": "A slide layout designed to present a solution to previously identified problems, showcasing key aspects of the solution with sections and icons.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "companyName": {
+            "description": "Company name displayed in header",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+          },
+          "date": {
+            "description": "Today Date displayed in header",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 30
+          },
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 25
+          },
+          "mainDescription": {
+            "description": "Main content text describing the solution",
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 300
+          },
+          "sections": {
+            "description": "List of solution sections with titles, descriptions, and optional icons",
+            "minItems": 2,
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Section title",
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 30
+                },
+                "description": {
+                  "description": "Section description",
+                  "type": "string",
+                  "minLength": 5,
+                  "maxLength": 70
+                },
+                "icon": {
+                  "description": "Icon for the section",
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "description": "URL to icon",
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "type": "string",
+                      "minLength": 5,
+                      "maxLength": 20
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "title",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "companyName",
+          "date",
+          "title",
+          "mainDescription",
+          "sections"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:modern-product-overview-slide",
+      "name": "Product Overview Slide",
+      "description": "A slide layout designed to showcase a company's products or services, highlighting their features and benefits in a structured format.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "companyName": {
+            "description": "Company name displayed in header",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+          },
+          "date": {
+            "description": "Today Date displayed in header",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 50
+          },
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 40
+          },
+          "mainDescription": {
+            "description": "Main content text describing the product overview",
+            "type": "string",
+            "minLength": 50,
+            "maxLength": 400
+          },
+          "products": {
+            "description": "List of products or services to showcase",
+            "minItems": 2,
+            "maxItems": 2,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Product title",
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 50
+                },
+                "description": {
+                  "description": "Product description",
+                  "type": "string",
+                  "minLength": 30,
+                  "maxLength": 140
+                },
+                "image": {
+                  "description": "Product image",
+                  "type": "object",
+                  "properties": {
+                    "__image_url__": {
+                      "description": "URL to image",
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "__image_prompt__": {
+                      "type": "string",
+                      "minLength": 10,
+                      "maxLength": 50
+                    }
+                  },
+                  "required": [
+                    "__image_url__",
+                    "__image_prompt__"
+                  ],
+                  "additionalProperties": false
+                },
+                "isBlueBackground": {
+                  "description": "Whether the product box has a blue background",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "title",
+                "description",
+                "image",
+                "isBlueBackground"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "companyName",
+          "date",
+          "title",
+          "mainDescription",
+          "products"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:modern-market-size-pitchdeck-slide",
+      "name": "Market Size Pitch Deck Slide",
+      "description": "A professional slide layout designed to present market size statistics, including TAM, SAM, and SOM, with a world map and key metrics.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main slide title",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 15
+          },
+          "companyName": {
+            "description": "Company name displayed in header",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+          },
+          "date": {
+            "description": "Today Date displayed in header",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 50
+          },
+          "mapImage": {
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 50
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "marketStats": {
+            "description": "Market statistics including TAM, SAM, and SOM with labels, values, and descriptions.",
+            "minItems": 1,
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 30
+                },
+                "value": {
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 30
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 130
+                }
+              },
+              "required": [
+                "label",
+                "value",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "description": {
+            "description": "Main description text for the slide",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "companyName",
+          "date",
+          "mapImage",
+          "marketStats",
+          "description"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:modern-market-validation-slide",
+      "name": "Market Validation Slide",
+      "description": "A slide layout designed to present market validation data, including flexible market validation metrics, comparisons, and an optional decorative image.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "companyName": {
+            "description": "Company name displayed in header",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+          },
+          "date": {
+            "description": "Today Date displayed in header",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 50
+          },
+          "title": {
+            "description": "Title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 20
+          },
+          "description": {
+            "description": "Main description text for the slide explaining market validation",
+            "type": "string",
+            "minLength": 50,
+            "maxLength": 400
+          },
+          "comparisonData": {
+            "description": "Comparison data for market validation, allowing flexible labels and values",
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "description": "Name of comparison entity (e.g., company, product, etc.)",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 50
+                },
+                "metricLabel": {
+                  "description": "Label for the metric being compared (e.g., Users, Revenue, etc.)",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 50
+                },
+                "value": {
+                  "description": "Numeric value for the metric",
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "label",
+                "metricLabel",
+                "value"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "image": {
+            "description": "Optional decorative image",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 50
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "companyName",
+          "date",
+          "title",
+          "description",
+          "comparisonData"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:modern-company-traction-slide",
+      "name": "Company Traction Slide",
+      "description": "A slide layout designed to present company traction data, including growth statistics over the years, a chart visualization, and key metrics in a visually appealing format.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "companyName": {
+            "description": "Company name displayed in header",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+          },
+          "date": {
+            "description": "Today Date displayed in header",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 50
+          },
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string"
+          },
+          "description": {
+            "description": "Main content text describing the company's traction and growth momentum.",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 200
+          },
+          "growthStats": {
+            "description": "Growth statistics for the company, used for chart visualization. Each entry is an object representing a specific year, with the 'year' key as a string (e.g., '2020'), and additional keys for each metric (such as 'artificialIntelligence', 'internetOfThings', 'others'), where the values are numbers representing the metric's value for that year. Example:\n\n[\n  { year: '2020', artificialIntelligence: 5, internetOfThings: 10, others: 8 },\n  { year: '2021', artificialIntelligence: 10, internetOfThings: 20, others: 15 },\n  ...\n]\nThis structure allows the chart to dynamically render multiple series over time, with each metric visualized as a separate line.",
+            "minItems": 1,
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "description": "Growth statistics for a specific year, with any number of metrics as key-value pairs where keys are metric names and values are numbers.",
+              "type": "object",
+              "properties": {
+                "year": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "year"
+              ],
+              "additionalProperties": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "required": [
+          "companyName",
+          "date",
+          "title",
+          "description",
+          "growthStats"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:modern-business-model-slide",
+      "name": "Business Model Slide",
+      "description": "A business model presentation slide displaying CAC metrics and monetization strategy.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "companyName": {
+            "description": "Company name displayed in header",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+          },
+          "date": {
+            "description": "Today Date displayed in header",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 50
+          },
+          "title": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 20
+          },
+          "description": {
+            "description": "Description of the business model, monetization strategy, and customer acquisition costs.",
+            "type": "string"
+          },
+          "cacChart": {
+            "description": "Array of objects representing Customer Acquisition Cost (CAC) metrics for different business segments or channels. Each object should include a 'label' (the name of the segment or channel) and a 'percentage' (the CAC as a percentage value, from 0 to 100). This data is visualized in the bar chart to illustrate the distribution of CAC across various categories.",
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 20
+                },
+                "percentage": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              },
+              "required": [
+                "label",
+                "percentage"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "companyName",
+          "date",
+          "title",
+          "description",
+          "cacChart"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:modern-team-slide",
+      "name": "Modern Team Slide",
+      "description": "A clean modern team slide showcasing team members with professional profiles and blue-white design.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title of the slide",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 15
+          },
+          "subtitle": {
+            "description": "Optional subtitle describing the team",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 120
+          },
+          "teamMembers": {
+            "description": "List of team members with their information",
+            "minItems": 2,
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "Team member's full name",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 50
+                },
+                "position": {
+                  "description": "Job title or position",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 50
+                },
+                "description": {
+                  "description": "Brief professional description of the team member",
+                  "type": "string",
+                  "minLength": 20,
+                  "maxLength": 120
+                },
+                "image": {
+                  "type": "object",
+                  "properties": {
+                    "__image_url__": {
+                      "description": "URL to image",
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "__image_prompt__": {
+                      "type": "string",
+                      "minLength": 10,
+                      "maxLength": 50
+                    }
+                  },
+                  "required": [
+                    "__image_url__",
+                    "__image_prompt__"
+                  ],
+                  "additionalProperties": false
+                },
+                "linkedIn": {
+                  "description": "LinkedIn profile URL (optional)",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "position",
+                "description",
+                "image"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "companyName": {
+            "description": "Company name displayed in header",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+          },
+          "date": {
+            "description": "Today Date displayed in header",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 50
+          }
+        },
+        "required": [
+          "title",
+          "teamMembers",
+          "companyName",
+          "date"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:modern-thank-you-slide",
+      "name": "Thank You Slide",
+      "description": "A simple, plain thank you slide for closing presentations. This is always the last slide in a presentation, providing a clean and professional closing message with company contact information.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main thank you message",
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 30
+          },
+          "subtitle": {
+            "description": "Optional subtitle or closing remark",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 100
+          },
+          "companyName": {
+            "description": "Company name displayed in header",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+          },
+          "date": {
+            "description": "Today Date displayed in header",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 50
+          },
+          "address": {
+            "description": "Company address for contact section",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 100
+          },
+          "phone": {
+            "description": "Company phone number for contact section",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 30
+          },
+          "website": {
+            "description": "Company website for contact section",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 100
+          },
+          "email": {
+            "description": "Company email address for contact section",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "subtitle",
+          "companyName",
+          "date",
+          "address",
+          "phone",
+          "website",
+          "email"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:standard-chart-left-text-right-layout",
+      "name": "Chart Left Text Right",
+      "description": "A slide with header label, a left-side inline bar chart, and right-side title with paragraph.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main heading (max ~7 words)",
+            "type": "string",
+            "minLength": 16,
+            "maxLength": 64
+          },
+          "paragraph": {
+            "description": "Supporting description",
+            "type": "string",
+            "minLength": 50,
+            "maxLength": 200
+          },
+          "chart": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "bar",
+                  "horizontalBar",
+                  "line",
+                  "pie"
+                ]
+              },
+              "data": {
+                "minItems": 3,
+                "maxItems": 8,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "description": "Category label",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 12
+                    },
+                    "value": {
+                      "description": "Value 0–100",
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "primaryColor": {
+                "type": "string"
+              },
+              "gridColor": {
+                "type": "string"
+              },
+              "pieColors": {
+                "minItems": 1,
+                "maxItems": 10,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "showLabels": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "type",
+              "data",
+              "primaryColor",
+              "gridColor",
+              "pieColors",
+              "showLabels"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "paragraph",
+          "chart"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:standard-header-left-media-contact-info-slide",
+      "name": "ContactLayout",
+      "description": "A slide with a top bar, left media with overlay and bottom bar, and right content with header and text blocks. This should only be used for contact information.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "metaMaxWords": {
+            "description": "Maximum number of words in any single text field",
+            "type": "number"
+          },
+          "topBar": {
+            "type": "object",
+            "properties": {
+              "pageNumber": {
+                "description": "Top-right number text. Max 1 word",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 3
+              }
+            },
+            "required": [
+              "pageNumber"
+            ],
+            "additionalProperties": false
+          },
+          "leftPanel": {
+            "type": "object",
+            "properties": {
+              "backgroundImage": {
+                "type": "object",
+                "properties": {
+                  "__image_url__": {
+                    "description": "URL to image",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "__image_prompt__": {
+                    "description": "Prompt used to generate the image. Max 24 words",
+                    "type": "string",
+                    "minLength": 10,
+                    "maxLength": 120
+                  }
+                },
+                "required": [
+                  "__image_url__",
+                  "__image_prompt__"
+                ],
+                "additionalProperties": false
+              },
+              "centerIcon": {
+                "type": "object",
+                "properties": {
+                  "__icon_url__": {
+                    "description": "URL to icon",
+                    "type": "string"
+                  },
+                  "__icon_query__": {
+                    "description": "Query used to search the icon. Max 5 words",
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 24
+                  }
+                },
+                "required": [
+                  "__icon_url__",
+                  "__icon_query__"
+                ],
+                "additionalProperties": false
+              },
+              "websiteBar": {
+                "type": "object",
+                "properties": {
+                  "websiteText": {
+                    "description": "Website text in bottom green bar. Max 4 words",
+                    "type": "string",
+                    "minLength": 12,
+                    "maxLength": 30
+                  },
+                  "actionIcon": {
+                    "type": "object",
+                    "properties": {
+                      "__icon_url__": {
+                        "description": "URL to icon",
+                        "type": "string"
+                      },
+                      "__icon_query__": {
+                        "description": "Query used to search the icon. Max 5 words",
+                        "type": "string",
+                        "minLength": 3,
+                        "maxLength": 24
+                      }
+                    },
+                    "required": [
+                      "__icon_url__",
+                      "__icon_query__"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "websiteText",
+                  "actionIcon"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "backgroundImage",
+              "centerIcon",
+              "websiteBar"
+            ],
+            "additionalProperties": false
+          },
+          "rightContent": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "description": "Main heading. Max 6 words",
+                "type": "string",
+                "minLength": 18,
+                "maxLength": 40
+              },
+              "sections": {
+                "description": "List of content sections",
+                "minItems": 1,
+                "maxItems": 3,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "description": "Section label text. Max 2 words",
+                      "type": "string",
+                      "minLength": 4,
+                      "maxLength": 10
+                    },
+                    "value": {
+                      "description": "Section value text. Max 100 characters",
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 50
+                    },
+                    "showDivider": {
+                      "description": "Whether to show bottom divider",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "value",
+                    "showDivider"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "title",
+              "sections"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "metaMaxWords",
+          "topBar",
+          "leftPanel",
+          "rightContent"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:standard-split-left-strip-header-title-subtitle-cards-slide",
+      "name": "Heading Bullet Image Description",
+      "description": "A slide with a left strip, top label with rule, right header, right description, floating small image, and a centered card with ...cards.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "metaMaxWords": {
+            "description": "Maximum number of words the text areas can handle collectively.",
+            "type": "number"
+          },
+          "pageNumber": {
+            "description": "Top-right page number text. Max 3 chars",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 3
+          },
+          "heading": {
+            "description": "Main heading across up to 2 lines. Max 7 words",
+            "type": "string",
+            "minLength": 16,
+            "maxLength": 38
+          },
+          "subheading": {
+            "description": "Supporting paragraph under the heading. Max 35 words",
+            "type": "string",
+            "minLength": 60,
+            "maxLength": 200
+          },
+          "smallImage": {
+            "description": "Small image partially behind the main card",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Prompt used to generate the image. Max 30 words",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 150
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "cards": {
+            "description": "Array of strategy cards",
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Card ribbon title. Max 3 words",
+                  "type": "string",
+                  "minLength": 8,
+                  "maxLength": 16
+                },
+                "body": {
+                  "description": "Card body text. Max 28 words",
+                  "type": "string",
+                  "minLength": 60,
+                  "maxLength": 160
+                }
+              },
+              "required": [
+                "title",
+                "body"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "metaMaxWords",
+          "pageNumber",
+          "heading",
+          "subheading",
+          "smallImage",
+          "cards"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:standard-header-bullets-title-description-image-slide",
+      "name": "Icon Bullet Description",
+      "description": "A slide with a small header label and number, a left card of ...cards with round symbols and titles with descriptions, a large heading with supporting text, and a decorative image on a mid-page band",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "metaMaxWords": {
+            "description": "Maximum number of words any single text field can handle in this layout",
+            "type": "number"
+          },
+          "headerNumber": {
+            "description": "Small header number text. Max 3 characters",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 3
+          },
+          "rightTitle": {
+            "description": "Large heading on the right. Max 8 words",
+            "type": "string",
+            "minLength": 24,
+            "maxLength": 72
+          },
+          "rightDescription": {
+            "description": "Supporting paragraph under the large heading. Max 40 words",
+            "type": "string",
+            "minLength": 120,
+            "maxLength": 240
+          },
+          "cards": {
+            "description": "Array of ...cards with a round symbol, title and description. Max 6 items",
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "symbolText": {
+                  "description": "Single-character symbol inside the round badge",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1
+                },
+                "symbolIcon": {
+                  "description": "Optional icon representation for the round symbol",
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "description": "URL to icon",
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "description": "Query used to search the icon. Max 3 words",
+                      "type": "string",
+                      "minLength": 2,
+                      "maxLength": 20
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                },
+                "title": {
+                  "description": "Title for the card item. Max 4 words",
+                  "type": "string",
+                  "minLength": 16,
+                  "maxLength": 38
+                },
+                "description": {
+                  "description": "Description for the card item. Max 15 words.",
+                  "type": "string",
+                  "minLength": 50,
+                  "maxLength": 100
+                }
+              },
+              "required": [
+                "symbolText",
+                "symbolIcon",
+                "title",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "metaMaxWords",
+          "headerNumber",
+          "rightTitle",
+          "rightDescription",
+          "cards"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:standard-header-title-card-slide",
+      "name": "Icon Image Description",
+      "description": "A slide with a top bar, centered title, placeholder icon area, and a colored card with circular icon, heading, and paragraph",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "meta": {
+            "type": "object",
+            "properties": {
+              "maxWords": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "maxWords"
+            ],
+            "additionalProperties": false
+          },
+          "topBar": {
+            "type": "object",
+            "properties": {
+              "pageNumber": {
+                "description": "Page number text. Max 1 word",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 3
+              }
+            },
+            "required": [
+              "pageNumber"
+            ],
+            "additionalProperties": false
+          },
+          "title": {
+            "description": "Main title split across up to two lines. Max 10 words",
+            "type": "string",
+            "minLength": 24,
+            "maxLength": 56
+          },
+          "backgroundImage": {
+            "description": "Full-bleed background image behind card area",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Prompt used to generate the image. Max 30 words",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 200
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "card": {
+            "type": "object",
+            "properties": {
+              "circleIcon": {
+                "type": "object",
+                "properties": {
+                  "__icon_url__": {
+                    "description": "URL to icon",
+                    "type": "string"
+                  },
+                  "__icon_query__": {
+                    "description": "Query used to search the icon. Max 3 words",
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 30
+                  }
+                },
+                "required": [
+                  "__icon_url__",
+                  "__icon_query__"
+                ],
+                "additionalProperties": false
+              },
+              "heading": {
+                "description": "Card heading text. Max 10 words",
+                "type": "string",
+                "minLength": 22,
+                "maxLength": 70
+              },
+              "body": {
+                "description": "Card body paragraph. Max 80 words",
+                "type": "string",
+                "minLength": 140,
+                "maxLength": 450
+              },
+              "image": {
+                "description": "Optional supporting image for the card. Max 30 words",
+                "type": "object",
+                "properties": {
+                  "__image_url__": {
+                    "description": "URL to image",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "__image_prompt__": {
+                    "description": "Prompt used to generate the image. Max 30 words",
+                    "type": "string",
+                    "minLength": 10,
+                    "maxLength": 200
+                  }
+                },
+                "required": [
+                  "__image_url__",
+                  "__image_prompt__"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "circleIcon",
+              "heading",
+              "body",
+              "image"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "meta",
+          "topBar",
+          "title",
+          "backgroundImage",
+          "card"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:standard-header-smallbar-title-team-cards-slide",
+      "name": "Image List With Description",
+      "description": "A slide with a top utility bar, centered title, and a grid of cards with names, roles, and background images.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "utilityBar": {
+            "type": "object",
+            "properties": {
+              "pageNumber": {
+                "description": "Page number text. 1-2 digits",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2
+              },
+              "decorativeLine": {
+                "description": "Decorative line representation.",
+                "type": "object",
+                "properties": {
+                  "__icon_url__": {
+                    "description": "URL to icon",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "__icon_query__": {
+                    "description": "Query used to search the icon. Max 5 words",
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 30
+                  }
+                },
+                "required": [
+                  "__icon_url__",
+                  "__icon_query__"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "pageNumber",
+              "decorativeLine"
+            ],
+            "additionalProperties": false
+          },
+          "title": {
+            "description": "Centered main title. Max 5 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 50
+          },
+          "cards": {
+            "description": "Grid of member cards with name, role, and image. Up to 4 items",
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "Member name. Up to 3 words.",
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 30
+                },
+                "role": {
+                  "description": "Short description under name. Up to 10 words",
+                  "type": "string",
+                  "minLength": 20,
+                  "maxLength": 50
+                },
+                "photo": {
+                  "type": "object",
+                  "properties": {
+                    "__image_url__": {
+                      "description": "URL to image",
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "__image_prompt__": {
+                      "description": "Prompt used to generate the image. Max 30 words",
+                      "type": "string",
+                      "minLength": 10,
+                      "maxLength": 160
+                    }
+                  },
+                  "required": [
+                    "__image_url__",
+                    "__image_prompt__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name",
+                "role",
+                "photo"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "utilityBar",
+          "title",
+          "cards"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:standard-header-counter-two-column-image-text-slide",
+      "name": "Intro Slide",
+      "description": "A slide with a header row containing label, separator, and counter, followed by a two-column layout with a media area and stacked text blocks. If used as the endig slide then it shoudn't have the intro card.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "maxWords": 460,
+        "type": "object",
+        "properties": {
+          "header": {
+            "type": "object",
+            "properties": {
+              "separatorIcon": {
+                "description": "Graphic separator element",
+                "type": "object",
+                "properties": {
+                  "__icon_url__": {
+                    "description": "URL to icon",
+                    "type": "string"
+                  },
+                  "__icon_query__": {
+                    "description": "Query used to search the icon. Max 3 words",
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 40
+                  }
+                },
+                "required": [
+                  "__icon_url__",
+                  "__icon_query__"
+                ],
+                "additionalProperties": false
+              },
+              "counter": {
+                "description": "Small counter text. Max 1 word",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 3
+              }
+            },
+            "required": [
+              "separatorIcon",
+              "counter"
+            ],
+            "additionalProperties": false
+          },
+          "media": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "Choose media type for left panel",
+                "type": "string",
+                "enum": [
+                  "image"
+                ]
+              },
+              "image": {
+                "type": "object",
+                "properties": {
+                  "__image_url__": {
+                    "description": "URL to image",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "__image_prompt__": {
+                    "description": "Prompt used to generate the image. Max 30 words",
+                    "type": "string",
+                    "minLength": 10,
+                    "maxLength": 150
+                  }
+                },
+                "required": [
+                  "__image_url__",
+                  "__image_prompt__"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "type",
+              "image"
+            ],
+            "additionalProperties": false
+          },
+          "title": {
+            "description": "Main title, supports a line break. Max 6 words",
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 30
+          },
+          "titleBreakAfter": {
+            "description": "Character index to insert a line break in title",
+            "type": "number",
+            "minimum": 1,
+            "maximum": 25
+          },
+          "paragraph": {
+            "description": "Paragraph text block. Max 20 words",
+            "type": "string",
+            "minLength": 50,
+            "maxLength": 200
+          },
+          "introCard": {
+            "type": "object",
+            "properties": {
+              "enabled": {
+                "description": "Show intro card with name and date",
+                "type": "boolean"
+              },
+              "initials": {
+                "description": "Initials inside the circle",
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 3
+              },
+              "name": {
+                "description": "Display name",
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 40
+              },
+              "date": {
+                "description": "Display date string",
+                "type": "string",
+                "minLength": 6,
+                "maxLength": 40
+              }
+            },
+            "required": [
+              "enabled",
+              "initials",
+              "name",
+              "date"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "header",
+          "media",
+          "title",
+          "titleBreakAfter",
+          "paragraph",
+          "introCard"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:standard-header-tagline-cards-grid-slide",
+      "name": "Metrics Description",
+      "description": "A slide with a top utility row, a header, a tagline, and a grid of cards each with a number block and text",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main title. Single line up to ~34 chars or two lines up to ~70 chars. Max 9 words",
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 70
+          },
+          "tagline": {
+            "description": "Subtitle/tagline under title. Max 20 words",
+            "type": "string",
+            "minLength": 40,
+            "maxLength": 120
+          },
+          "decorativeLine": {
+            "description": "SVG decorative line asset",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Prompt used to generate the image. Max 40 words",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 200
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "cards": {
+            "description": "Grid of cards with number block, subtitle, and body (<=100 chars)",
+            "minItems": 1,
+            "maxItems": 6,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "number": {
+                  "description": "Main number text inside number block. 1 to 3 digits",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 5
+                },
+                "numberSymbol": {
+                  "description": "Optional symbol next to the number. Single character",
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 3
+                },
+                "subtitle": {
+                  "description": "Card subtitle. Max 5 words",
+                  "type": "string",
+                  "minLength": 8,
+                  "maxLength": 28
+                },
+                "body": {
+                  "description": "Card body text. Max 100 characters",
+                  "type": "string",
+                  "minLength": 20,
+                  "maxLength": 100
+                },
+                "icon": {
+                  "description": "Optional icon for the card header area",
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "description": "URL to icon",
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "description": "Query used to search the icon. Max 6 words",
+                      "type": "string",
+                      "minLength": 3,
+                      "maxLength": 40
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "number",
+                "numberSymbol",
+                "subtitle",
+                "body",
+                "icon"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "title",
+          "tagline",
+          "decorativeLine",
+          "cards"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:standard-header-bullets-image-split-slide",
+      "name": "Numbered Bullet Single Image",
+      "description": "A slide with a top bar, left column with numbered bullets, middle image panel, and right stacked heading with paragraph",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "metaMaxWords": {
+            "description": "Maximum number of words allowed in any prompt/description metadata fields.",
+            "type": "number"
+          },
+          "topBar": {
+            "type": "object",
+            "properties": {
+              "lineIcon": {
+                "description": "Decorative line representation with query only",
+                "type": "object",
+                "properties": {
+                  "__icon_url__": {
+                    "description": "URL to icon",
+                    "type": "string"
+                  },
+                  "__icon_query__": {
+                    "description": "Query used to search the icon. Max 6 words",
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 30
+                  }
+                },
+                "required": [
+                  "__icon_url__",
+                  "__icon_query__"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "lineIcon"
+            ],
+            "additionalProperties": false
+          },
+          "leftBullets": {
+            "description": "List of numbered bullets. Max 5 items",
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "numberText": {
+                  "description": "Two-digit bullet number. Max 2 chars",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 2
+                },
+                "title": {
+                  "description": "Bullet title text. Designed for 24px. Max ~36 chars",
+                  "type": "string",
+                  "minLength": 10,
+                  "maxLength": 36
+                },
+                "body": {
+                  "description": "Bullet body text. Max ~100 chars",
+                  "type": "string",
+                  "minLength": 60,
+                  "maxLength": 100
+                }
+              },
+              "required": [
+                "numberText",
+                "title",
+                "body"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "middleImage": {
+            "description": "Image displayed in the middle column",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "URL to image",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Prompt used to generate the image. Max 18 words",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 90
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "rightHeader": {
+            "type": "object",
+            "properties": {
+              "heading": {
+                "description": "Right column heading. Max ~30 chars",
+                "type": "string",
+                "minLength": 6,
+                "maxLength": 30
+              },
+              "paragraph": {
+                "description": "Right paragraph text. Max 200 chars",
+                "type": "string",
+                "minLength": 80,
+                "maxLength": 200
+              }
+            },
+            "required": [
+              "heading",
+              "paragraph"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "metaMaxWords",
+          "topBar",
+          "leftBullets",
+          "middleImage",
+          "rightHeader"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:standard-table-of-contents-layout",
+      "name": "Table Of Contents",
+      "description": "Header with brand marker, title, optional description, and a two-column table of contents list",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "topBar": {
+            "type": "object",
+            "properties": {
+              "marker": {
+                "description": "Numeric marker on the top bar. Up to 3 digits",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 3
+              }
+            },
+            "required": [
+              "marker"
+            ],
+            "additionalProperties": false
+          },
+          "title": {
+            "description": "Main slide title. Max 10 words",
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 68
+          },
+          "description": {
+            "description": "Lead paragraph. Optional. Max 35 words",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200
+          },
+          "items": {
+            "description": "List of contents (3-10)",
+            "minItems": 3,
+            "maxItems": 10,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Section title. Max 50 characters",
+                  "type": "string",
+                  "minLength": 4,
+                  "maxLength": 50
+                }
+              },
+              "required": [
+                "title"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "topBar",
+          "title",
+          "description",
+          "items"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:standard-visual-metrics",
+      "name": "Visual Metrics",
+      "description": "A slide with a header bar, numeric marker, title, description, and grid of cards with headings, circular metrics, and texts",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "topBar": {
+            "type": "object",
+            "properties": {
+              "marker": {
+                "description": "Numeric marker on the top bar. Up to 3 digits",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 3
+              }
+            },
+            "required": [
+              "marker"
+            ],
+            "additionalProperties": false
+          },
+          "title": {
+            "description": "Main slide title. Max 10 words",
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 68
+          },
+          "description": {
+            "description": "Lead paragraph. Max 35 words",
+            "type": "string",
+            "minLength": 70,
+            "maxLength": 200
+          },
+          "cards": {
+            "description": "Grid of cards with heading, circular metric, and text",
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Card heading. Max 3 words",
+                  "type": "string",
+                  "minLength": 6,
+                  "maxLength": 18
+                },
+                "value": {
+                  "description": "Numeric value to display",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 9999
+                },
+                "unit": {
+                  "description": "Unit for the value, e.g., %, K, M",
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 2
+                },
+                "description": {
+                  "description": "Card supporting text. Max 50 characters",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 50
+                }
+              },
+              "required": [
+                "title",
+                "value",
+                "unit",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "chartPalette": {
+            "description": "Palette for charts",
+            "minItems": 2,
+            "maxItems": 6,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 4,
+              "maxLength": 20
+            }
+          }
+        },
+        "required": [
+          "topBar",
+          "title",
+          "description",
+          "cards",
+          "chartPalette"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:swift-bullet-with-icons-title-description",
+      "name": "Bullet With Icons Title Description",
+      "description": "Bullet with icons with title and description and title and description for whole",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 60
+          },
+          "sideHeading": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 60
+          },
+          "sideParagraph": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 300
+          },
+          "items": {
+            "minItems": 3,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "icon": {
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "description": "URL to icon",
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "type": "string",
+                      "minLength": 5,
+                      "maxLength": 20
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 40
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 160
+                }
+              },
+              "required": [
+                "icon",
+                "title",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "website": {
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 60
+          }
+        },
+        "required": [
+          "title",
+          "sideHeading",
+          "sideParagraph",
+          "items",
+          "website"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:swift-icon-bullet-list-description-slide",
+      "name": "Icon Bullet List Description",
+      "description": "Bullet list with title, description, and icon",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 48
+          },
+          "description": {
+            "type": "string",
+            "minLength": 30,
+            "maxLength": 200
+          },
+          "features": {
+            "minItems": 3,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "minLength": 4,
+                  "maxLength": 28
+                },
+                "body": {
+                  "type": "string",
+                  "minLength": 20,
+                  "maxLength": 140
+                },
+                "icon": {
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "type": "string",
+                      "minLength": 0,
+                      "maxLength": 80
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "title",
+                "body",
+                "icon"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "website": {
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 60
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "features",
+          "website"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:swift-image-list-description-slide",
+      "name": "Image List Description",
+      "description": "List of Images with subtitle and description with one description for the entire page",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "titleLine1": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 24
+          },
+          "titleLine2": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 24
+          },
+          "description": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 200
+          },
+          "items": {
+            "minItems": 3,
+            "maxItems": 6,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 40
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 10,
+                  "maxLength": 140
+                },
+                "image": {
+                  "type": "object",
+                  "properties": {
+                    "__image_url__": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "__image_prompt__": {
+                      "type": "string",
+                      "minLength": 0,
+                      "maxLength": 120
+                    }
+                  },
+                  "required": [
+                    "__image_url__",
+                    "__image_prompt__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "title",
+                "description",
+                "image"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "website": {
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 60
+          }
+        },
+        "required": [
+          "titleLine1",
+          "titleLine2",
+          "description",
+          "items",
+          "website"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:swift-IntroSlideLayout",
+      "name": "Intro Slide Layout",
+      "description": "Intro slide with header, title, subtitle, body, image. If used for last slide, then intro card should be disabled.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main slide title",
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 68
+          },
+          "subtitlePrefix": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 40
+          },
+          "subtitleAccent": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 40
+          },
+          "paragraph": {
+            "type": "string",
+            "minLength": 40,
+            "maxLength": 200
+          },
+          "website": {
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 60
+          },
+          "introCard": {
+            "type": "object",
+            "properties": {
+              "enabled": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 40
+              },
+              "date": {
+                "type": "string",
+                "minLength": 4,
+                "maxLength": 40
+              }
+            },
+            "required": [
+              "enabled",
+              "name",
+              "date"
+            ],
+            "additionalProperties": false
+          },
+          "media": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "image"
+              },
+              "image": {
+                "type": "object",
+                "properties": {
+                  "__image_url__": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "__image_prompt__": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 120
+                  }
+                },
+                "required": [
+                  "__image_url__",
+                  "__image_prompt__"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "type",
+              "image"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "subtitlePrefix",
+          "subtitleAccent",
+          "paragraph",
+          "website",
+          "introCard",
+          "media"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:swift-MetricsNumbers",
+      "name": "Metrics Numbers",
+      "description": "Swift: Our Impact in Numbers with three stacked metric cards",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 60
+          },
+          "leftTitle": {
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 40
+          },
+          "leftBody": {
+            "type": "string",
+            "minLength": 30,
+            "maxLength": 220
+          },
+          "website": {
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 60
+          },
+          "metrics": {
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 8
+                },
+                "line1": {
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 22
+                },
+                "line2": {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 22
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 10,
+                  "maxLength": 140
+                }
+              },
+              "required": [
+                "value",
+                "line1",
+                "line2",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "title",
+          "leftTitle",
+          "leftBody",
+          "website",
+          "metrics"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:swift-simple-bullet-points-layout",
+      "name": "Simple Bullet Points",
+      "description": "Bullet Points with title and description",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 36
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 260
+          },
+          "points": {
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "minLength": 6,
+                  "maxLength": 60
+                },
+                "body": {
+                  "type": "string",
+                  "minLength": 30,
+                  "maxLength": 220
+                }
+              },
+              "required": [
+                "title",
+                "body"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "website": {
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 60
+          }
+        },
+        "required": [
+          "title",
+          "statement",
+          "points",
+          "website"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:swift-SwiftTableOfContents",
+      "name": "Table Of Contents",
+      "description": "Swift: Table of contents with up to 10 items (title + description)",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 60
+          },
+          "items": {
+            "minItems": 1,
+            "maxItems": 10,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 40
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 60
+                }
+              },
+              "required": [
+                "title",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "website": {
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 60
+          }
+        },
+        "required": [
+          "title",
+          "items",
+          "website"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:swift-tableorChart",
+      "name": "Table Or Chart",
+      "description": "Swift: Generic data table with option to render a chart (bar, horizontalBar, line, pie)",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 60
+          },
+          "description": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 220
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "table",
+              "chart"
+            ]
+          },
+          "columns": {
+            "minItems": 2,
+            "maxItems": 10,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            }
+          },
+          "rows": {
+            "minItems": 1,
+            "maxItems": 30,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "cells": {
+                  "description": "Row cells; count should match columns length",
+                  "minItems": 2,
+                  "maxItems": 10,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 200
+                  }
+                }
+              },
+              "required": [
+                "cells"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "chart": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "bar",
+                  "horizontalBar",
+                  "line",
+                  "pie"
+                ]
+              },
+              "data": {
+                "minItems": 3,
+                "maxItems": 12,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 12
+                    },
+                    "value": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1000000
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "primaryColor": {
+                "type": "string"
+              },
+              "gridColor": {
+                "type": "string"
+              },
+              "pieColors": {
+                "minItems": 1,
+                "maxItems": 10,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "showLabels": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "type",
+              "data",
+              "primaryColor",
+              "gridColor",
+              "pieColors",
+              "showLabels"
+            ],
+            "additionalProperties": false
+          },
+          "website": {
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 60
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "mode",
+          "columns",
+          "rows",
+          "chart",
+          "website"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "new:swift-Timeline",
+      "name": "Timeline",
+      "description": "Timeline of cards with title, subtitle banner",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 60
+          },
+          "subtitle": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 200
+          },
+          "items": {
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "year": {
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 6
+                },
+                "heading": {
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 28
+                },
+                "body": {
+                  "type": "string",
+                  "minLength": 10,
+                  "maxLength": 160
+                },
+                "icon": {
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "type": "string",
+                      "minLength": 0,
+                      "maxLength": 80
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "year",
+                "heading",
+                "body",
+                "icon"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "website": {
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 60
+          }
+        },
+        "required": [
+          "title",
+          "subtitle",
+          "items",
+          "website"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "templateName": "custom",
+  "layoutId": "image-left-text-right",
+  "layoutName": "Image Left with Title and Text",
+  "layoutDescription": "Left half is a full-height image, right half has title, subtitle, and body text. Great for feature introduction or storytelling slides.",
+  "themeRef": "corporate",
+
+  "structure": {
+    "type": "absolute",
+    "elements": [
+      {
+        "type": "image",
+        "field": "image",
+        "bounds": [0, 0, 48, 100],
+        "fitMode": "cover",
+        "zIndex": 0,
+        "defaultUrl": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
+        "defaultPrompt": "Modern office workspace with natural lighting"
+      },
+      {
+        "type": "heading",
+        "field": "title",
+        "bounds": [54, 18, 40, 12],
+        "align": "left",
+        "zIndex": 1,
+        "level": 1,
+        "maxWords": 8,
+        "defaultValue": "Why Choose Us"
+      },
+      {
+        "type": "text",
+        "field": "subtitle",
+        "bounds": [54, 32, 40, 8],
+        "zIndex": 1,
+        "maxWords": 15,
+        "defaultValue": "We deliver results that matter to your business growth."
+      },
+      {
+        "type": "text",
+        "field": "body",
+        "bounds": [54, 44, 40, 36],
+        "overflow": "shrink",
+        "zIndex": 1,
+        "maxWords": 80,
+        "defaultValue": "Our team of experts brings years of industry experience to every project. We focus on understanding your unique challenges and crafting tailored solutions that drive measurable outcomes. From strategy to execution, we partner with you at every step to ensure lasting success."
+      }
+    ]
+  },
+
+  "style": {
+    "fontFamily": "Inter",
+    "backgroundColor": "#FFFFFF"
+  }
+}

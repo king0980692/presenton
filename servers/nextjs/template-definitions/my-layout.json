@@ -1,0 +1,27 @@
+ {
+    "templateName": "my-template",
+    "layoutId": "my-layout",
+    "layoutName": "My Custom Layout",
+    "layoutDescription": "Description for LLM",
+
+    "structure": {
+      "type": "two-column",
+      "columns": [
+        {
+          "width": "1fr",
+          "elements": [
+            { "type": "heading", "field": "title", "maxWords": 8 },
+            { "type": "bullets", "field": "points", "withIcons": true }
+          ]
+        },
+        {
+          "width": "1fr",
+          "elements": [
+            { "type": "image", "field": "image" }
+          ]
+        }
+      ],
+      "gap": 40
+    }
+  }
+

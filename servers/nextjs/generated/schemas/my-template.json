@@ -1,0 +1,99 @@
+{
+  "name": "my-template",
+  "ordered": false,
+  "slides": [
+    {
+      "id": "my-template:my-layout",
+      "name": "My Custom Layout",
+      "description": "Description for LLM",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main heading text. Max 8 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 56
+          },
+          "points": {
+            "description": "List of bullet points with icons",
+            "minItems": 1,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Bullet title",
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 30
+                },
+                "description": {
+                  "description": "Bullet description",
+                  "type": "string",
+                  "minLength": 10,
+                  "maxLength": 150
+                },
+                "icon": {
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "description": "Icon URL",
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "description": "Icon search query",
+                      "type": "string",
+                      "minLength": 2,
+                      "maxLength": 20
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "title",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "image": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "points",
+          "image"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

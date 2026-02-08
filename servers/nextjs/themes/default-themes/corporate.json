@@ -1,0 +1,24 @@
+{
+  "themeId": "corporate",
+  "themeName": "Corporate",
+  "colors": {
+    "primary": "#2563EB",
+    "secondary": "#EFF6FF",
+    "tertiary": "#BFDBFE",
+    "background": "#FFFFFF",
+    "headingText": "#1E3A5F",
+    "bodyText": "#64748B"
+  },
+  "fonts": {
+    "heading": { "family": "Inter", "weight": 600 },
+    "body": { "family": "Inter", "weight": 400 },
+    "sizes": { "h1": 48, "h2": 36, "h3": 24, "body": 16, "caption": 12 }
+  },
+  "spacing": {
+    "preset": "normal",
+    "baseUnit": 8,
+    "lineHeight": 1.6,
+    "paragraphGap": 20
+  },
+  "background": { "type": "solid", "value": "#FFFFFF" }
+}

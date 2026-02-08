@@ -1,0 +1,44 @@
+{
+  "templateName": "custom",
+  "layoutId": "data-table",
+  "layoutName": "Data Table Slide",
+  "layoutDescription": "A single column slide with title, description, and a data table",
+
+  "structure": {
+    "type": "single",
+    "columns": [
+      {
+        "elements": [
+          {
+            "type": "heading",
+            "field": "title",
+            "level": 1,
+            "maxWords": 6,
+            "defaultValue": "Comparison Data"
+          },
+          {
+            "type": "text",
+            "field": "description",
+            "maxWords": 30,
+            "defaultValue": "A detailed comparison of key features and metrics across different options."
+          },
+          {
+            "type": "spacer",
+            "height": 30
+          },
+          {
+            "type": "table",
+            "field": "data",
+            "maxRows": 6,
+            "maxCols": 4
+          }
+        ]
+      }
+    ]
+  },
+
+  "style": {
+    "fontFamily": "Inter",
+    "backgroundColor": "#FFFFFF"
+  }
+}

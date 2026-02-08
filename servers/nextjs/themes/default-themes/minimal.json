@@ -1,0 +1,24 @@
+{
+  "themeId": "minimal",
+  "themeName": "Minimal",
+  "colors": {
+    "primary": "#6B7280",
+    "secondary": "#F9FAFB",
+    "tertiary": "#E5E7EB",
+    "background": "#FFFFFF",
+    "headingText": "#1F2937",
+    "bodyText": "#9CA3AF"
+  },
+  "fonts": {
+    "heading": { "family": "Inter", "weight": 300 },
+    "body": { "family": "Inter", "weight": 300 },
+    "sizes": { "h1": 48, "h2": 36, "h3": 24, "body": 16, "caption": 12 }
+  },
+  "spacing": {
+    "preset": "wide",
+    "baseUnit": 8,
+    "lineHeight": 1.8,
+    "paragraphGap": 24
+  },
+  "background": { "type": "solid", "value": "#FFFFFF" }
+}

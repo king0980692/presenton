@@ -1,0 +1,55 @@
+{
+  "templateName": "custom",
+  "layoutId": "hero-overlay",
+  "layoutName": "Hero Image Overlay",
+  "layoutDescription": "Full-screen hero image with overlaid title and subtitle text. Great for intro or section divider slides.",
+  "themeRef": "bold",
+
+  "structure": {
+    "type": "absolute",
+    "elements": [
+      {
+        "type": "image",
+        "field": "bg",
+        "bounds": [0, 0, 100, 100],
+        "fitMode": "cover",
+        "zIndex": 0,
+        "defaultUrl": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
+        "defaultPrompt": "Professional business team collaboration"
+      },
+      {
+        "type": "heading",
+        "field": "title",
+        "bounds": [8, 55, 60, 15],
+        "align": "left",
+        "zIndex": 10,
+        "level": 1,
+        "maxWords": 8,
+        "defaultValue": "Transform Your Business"
+      },
+      {
+        "type": "text",
+        "field": "subtitle",
+        "bounds": [8, 72, 50, 10],
+        "overflow": "shrink",
+        "zIndex": 10,
+        "maxWords": 20,
+        "defaultValue": "Discover innovative strategies to drive growth and stay ahead."
+      },
+      {
+        "type": "image",
+        "field": "logo",
+        "bounds": [85, 5, 10, 8],
+        "fitMode": "contain",
+        "zIndex": 15,
+        "defaultUrl": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
+        "defaultPrompt": "Company logo"
+      }
+    ]
+  },
+
+  "style": {
+    "fontFamily": "Playfair Display",
+    "backgroundColor": "#000000"
+  }
+}

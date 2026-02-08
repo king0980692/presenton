@@ -16,3 +16,4 @@ class ImportPresentationRequest(BaseModel):
     slides: List[ImportSlideContent] = Field(..., description="List of slides with content")
     language: str = Field(default="Traditional Chinese", description="Presentation language")
     export_as: Optional[Literal["pptx", "pdf"]] = Field(default=None, description="Export format (optional)")
+    theme: Optional[dict] = Field(default=None, description="Theme definition (optional). See ThemeModel for schema.")

@@ -17,6 +17,8 @@ import * as Recharts from "recharts";
 import * as d3 from 'd3';
 
 import { getHeader } from "../services/api/header";
+import type { ThemeDefinition } from "@/themes/theme.schema";
+import { themeToCSS } from "@/themes/theme.schema";
 export interface LayoutInfo {
   id: string;
   name?: string;
@@ -73,6 +75,9 @@ export interface LayoutContextType {
   cacheSize: number;
   refetch: () => Promise<void>;
   getCustomTemplateFonts: (presentationId: string) => string[] | null;
+  theme: ThemeDefinition | null;
+  setTheme: (theme: ThemeDefinition | null) => void;
+  themeCSSVars: Record<string, string>;
 }
 
 const LayoutContext = createContext<LayoutContextType | undefined>(undefined);
@@ -139,7 +144,14 @@ export const LayoutProvider: React.FC<{
   const [error, setError] = useState<string | null>(null);
   const [isPreloading, setIsPreloading] = useState(false);
   const [customTemplateFonts, setCustomTemplateFonts] = useState<Map<string, string[]>>(new Map());
+  const [theme, setTheme] = useState<ThemeDefinition | null>(null);
   const dispatch = useDispatch();
+
+  // Compute CSS variables from theme
+  const themeCSSVars = React.useMemo(() => {
+    if (!theme) return {};
+    return themeToCSS(theme);
+  }, [theme]);
 
   const buildData = async (templateData: TemplateResponse[]) => {
     const layouts: LayoutInfo[] = [];
@@ -255,9 +267,11 @@ export const LayoutProvider: React.FC<{
               `💥 Error extracting schema for ${fileName} from ${template.templateID}:`,
               error
             );
+            console.error(`💥 Import path was: @/presentation-templates/${template.templateID}/${fileName.replace(".tsx", "").replace(".ts", "")}`);
           }
         }
 
+        console.log(`📦 Template ${template.templateID}: loaded ${templateLayouts.length}/${template.files.length} layouts`, templateLayouts.map(l => l.id));
         fullDataByTemplateID.set(template.templateID, templateFullData);
         // Cache template layouts
         templateLayoutsCache.set(template.templateID, templateLayouts);
@@ -695,11 +709,16 @@ export const LayoutProvider: React.FC<{
     isPreloading,
     cacheSize: layoutCache.size,
     refetch: loadLayouts,
+    theme,
+    setTheme,
+    themeCSSVars,
   };
 
   return (
     <LayoutContext.Provider value={contextValue}>
-      {children}
+      <div style={themeCSSVars as React.CSSProperties}>
+        {children}
+      </div>
     </LayoutContext.Provider>
   );
 };

@@ -1,0 +1,64 @@
+{
+  "templateName": "custom",
+  "layoutId": "title-bullets-image",
+  "layoutName": "Title with Bullets and Image",
+  "layoutDescription": "A two-column slide with title, bullet points on the left and an image on the right",
+
+  "structure": {
+    "type": "two-column",
+    "columns": [
+      {
+        "width": "1fr",
+        "justify": "center",
+        "elements": [
+          {
+            "type": "heading",
+            "field": "title",
+            "level": 1,
+            "maxWords": 8,
+            "defaultValue": "Key Features"
+          },
+          {
+            "type": "text",
+            "field": "subtitle",
+            "maxWords": 25,
+            "defaultValue": "Discover the powerful capabilities that set our solution apart."
+          },
+          {
+            "type": "spacer",
+            "height": 20
+          },
+          {
+            "type": "bullets",
+            "field": "features",
+            "withIcons": true,
+            "max": 4,
+            "defaultValue": [
+              { "title": "Fast Performance", "description": "Lightning quick response times" },
+              { "title": "Secure", "description": "Enterprise-grade security built-in" },
+              { "title": "Scalable", "description": "Grows with your business needs" }
+            ]
+          }
+        ]
+      },
+      {
+        "width": "1fr",
+        "justify": "center",
+        "elements": [
+          {
+            "type": "image",
+            "field": "image",
+            "defaultUrl": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
+            "defaultPrompt": "Modern technology illustration"
+          }
+        ]
+      }
+    ],
+    "gap": 40
+  },
+
+  "style": {
+    "fontFamily": "Inter",
+    "backgroundColor": "#FFFFFF"
+  }
+}
