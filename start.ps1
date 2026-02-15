@@ -66,7 +66,8 @@ $deps = @("uv", "node", "npm")
 foreach ($dep in $deps) {
     if (Get-Command $dep -ErrorAction SilentlyContinue) {
         Write-Host "  OK: $dep installed" -ForegroundColor Green
-    } else {
+    }
+    else {
         Write-Host "  ERROR: $dep not installed" -ForegroundColor Red
         exit 1
     }
@@ -80,7 +81,8 @@ Push-Location "$ScriptDir\servers\fastapi"
 if (-not (Test-Path ".venv")) {
     Write-Host "Creating venv and installing dependencies..."
     uv sync
-} else {
+}
+else {
     Write-Host "Python venv exists"
 }
 Pop-Location
@@ -92,7 +94,8 @@ Push-Location "$ScriptDir\servers\nextjs"
 if (-not (Test-Path "node_modules")) {
     Write-Host "Installing npm dependencies..."
     npm install
-} else {
+}
+else {
     Write-Host "npm dependencies exist"
 }
 Pop-Location
@@ -141,11 +144,18 @@ try {
     while ($true) {
         Start-Sleep -Seconds 1
 
-        # Check if any process has exited
-        $exited = $processes | Where-Object { $_.HasExited }
-        if ($exited) {
-            Write-Host "A service has stopped" -ForegroundColor Red
-            break
+        # Check specific services
+        if ($fastapi.HasExited) { 
+            Write-Host "FastAPI backend (port 11003) stopped unexpectedly! Exit Code: $($fastapi.ExitCode)" -ForegroundColor Red
+            break 
+        }
+        if ($mcp.HasExited) { 
+            Write-Host "MCP server (port 9001) stopped unexpectedly! Exit Code: $($mcp.ExitCode)" -ForegroundColor Red
+            break 
+        }
+        if ($nextjs.HasExited) { 
+            Write-Host "Next.js frontend (port 11001) stopped unexpectedly! Exit Code: $($nextjs.ExitCode)" -ForegroundColor Red
+            break 
         }
     }
 }

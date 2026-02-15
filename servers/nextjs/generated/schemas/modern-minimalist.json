@@ -1,0 +1,178 @@
+{
+  "name": "modern-minimalist",
+  "ordered": false,
+  "slides": [
+    {
+      "id": "modern-minimalist:minimal-content",
+      "name": "3. Executive Letter",
+      "description": "Content heavy layout with signature style.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "msg_title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "msg_body": {
+            "description": "Descriptive text. Max 300 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 2100
+          },
+          "signature": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          },
+          "portrait": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "msg_title",
+          "msg_body",
+          "signature",
+          "portrait"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "modern-minimalist:minimal-cover",
+      "name": "1. Minimalist Cover",
+      "description": "Clean, bold typography cover for modern reports.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "year": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "subtitle": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          },
+          "accent_image": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "year",
+          "title",
+          "subtitle",
+          "accent_image"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "modern-minimalist:minimal-stats",
+      "name": "2. Big Data Impact",
+      "description": "Large numbers layout without frames.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "stat_title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "metrics_list": {
+            "description": "Key metrics to display",
+            "minItems": 1,
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "Metric value",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 10
+                },
+                "label": {
+                  "description": "Metric label",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 20
+                },
+                "description": {
+                  "description": "Metric description",
+                  "type": "string",
+                  "maxLength": 100
+                }
+              },
+              "required": [
+                "value",
+                "label",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "stat_title",
+          "metrics_list"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

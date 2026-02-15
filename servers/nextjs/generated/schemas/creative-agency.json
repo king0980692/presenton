@@ -1,0 +1,304 @@
+{
+  "name": "creative-agency",
+  "ordered": false,
+  "slides": [
+    {
+      "id": "creative-agency:01_cover",
+      "name": "Pop Art Cover",
+      "description": "Bold colorful shapes with big text",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "blob1": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "blob2": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "sub": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          }
+        },
+        "required": [
+          "blob1",
+          "blob2",
+          "title",
+          "sub"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "creative-agency:02_team_bubbles",
+      "name": "Our Team",
+      "description": "Circular team member photos",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "p1": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "n1": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          },
+          "p2": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "n2": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          },
+          "p3": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "n3": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          }
+        },
+        "required": [
+          "title",
+          "p1",
+          "n1",
+          "p2",
+          "n2",
+          "p3",
+          "n3"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "creative-agency:03_portfolio_grid",
+      "name": "Project Showcase",
+      "description": "Masonry style image grid for portfolio",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "w1": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "w2": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "w3": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "w4": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "w1",
+          "w2",
+          "w3",
+          "w4"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

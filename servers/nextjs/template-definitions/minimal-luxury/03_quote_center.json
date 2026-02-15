@@ -1,0 +1,54 @@
+{
+    "templateName": "minimal-luxury",
+    "layoutId": "03_quote_center",
+    "layoutName": "Elegant Quote",
+    "layoutDescription": "Centered serif quote with ample borders",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "quote",
+                "bounds": [
+                    20,
+                    35,
+                    60,
+                    30
+                ],
+                "align": "center",
+                "level": 2,
+                "defaultValue": "\"Simplicity is the ultimate sophistication.\""
+            },
+            {
+                "type": "text",
+                "field": "author",
+                "bounds": [
+                    40,
+                    70,
+                    20,
+                    10
+                ],
+                "align": "center",
+                "defaultValue": "— Leonardo da Vinci"
+            },
+            {
+                "type": "image",
+                "field": "bg",
+                "bounds": [
+                    0,
+                    0,
+                    100,
+                    100
+                ],
+                "fitMode": "cover",
+                "zIndex": -1,
+                "defaultPrompt": "white marble texture subtle veins high resolution"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Playfair Display",
+        "backgroundColor": "#FFFFFF",
+        "color": "#000000"
+    }
+}

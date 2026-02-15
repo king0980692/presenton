@@ -1,0 +1,65 @@
+{
+    "templateName": "esg-full-report",
+    "layoutId": "social-impact",
+    "layoutName": "4. Social Impact",
+    "layoutDescription": "Layout for showcasing social initiatives with imagery.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "social_title",
+                "bounds": [
+                    5,
+                    5,
+                    90,
+                    10
+                ],
+                "level": 2,
+                "align": "left",
+                "zIndex": 10,
+                "defaultValue": "Community Engagement"
+            },
+            {
+                "type": "image",
+                "field": "event_photo",
+                "bounds": [
+                    5,
+                    20,
+                    55,
+                    70
+                ],
+                "fitMode": "cover",
+                "zIndex": 5,
+                "defaultPrompt": "volunteers planting trees community service happy diverse group",
+                "borderRadius": "8px"
+            },
+            {
+                "type": "bullets",
+                "field": "initiatives",
+                "bounds": [
+                    65,
+                    20,
+                    30,
+                    70
+                ],
+                "zIndex": 10,
+                "maxItems": 4,
+                "defaultValue": [
+                    {
+                        "title": "Volunteer Day",
+                        "description": "500 employee hours contributed."
+                    },
+                    {
+                        "title": "Education Fund",
+                        "description": "Scholarships for 50 students."
+                    },
+                    {
+                        "title": "Local Sourcing",
+                        "description": "Partnered with 20 local farms."
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "templateName": "insurance-style",
+    "layoutId": "full-image-quote",
+    "layoutName": "Inspirational Quote",
+    "layoutDescription": "Full background image with overlay text.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "image",
+                "field": "bg",
+                "bounds": [
+                    0,
+                    0,
+                    100,
+                    100
+                ],
+                "fitMode": "cover",
+                "zIndex": -1,
+                "defaultPrompt": "warm sunrise landscape peaceful view mountains"
+            },
+            {
+                "type": "heading",
+                "field": "quote",
+                "bounds": [
+                    15,
+                    30,
+                    70,
+                    30
+                ],
+                "align": "center",
+                "level": 2,
+                "defaultValue": "'To give real service you must add something which cannot be bought or measured with money.'"
+            },
+            {
+                "type": "text",
+                "field": "author",
+                "bounds": [
+                    20,
+                    65,
+                    60,
+                    10
+                ],
+                "align": "center",
+                "maxWords": 10,
+                "defaultValue": "- Douglas Adams"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Lato",
+        "backgroundColor": "#FFF8E1",
+        "color": "#FFFFFF"
+    }
+}

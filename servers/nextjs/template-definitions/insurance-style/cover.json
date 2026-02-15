@@ -1,0 +1,55 @@
+{
+    "templateName": "insurance-style",
+    "layoutId": "cover",
+    "layoutName": "Insurance CSR Cover",
+    "layoutDescription": "Warm and welcoming cover page.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "image",
+                "field": "hero",
+                "bounds": [
+                    0,
+                    0,
+                    100,
+                    70
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "happy multigenerational asian family bright park sunlight natural authentic"
+            },
+            {
+                "type": "heading",
+                "field": "title",
+                "bounds": [
+                    5,
+                    75,
+                    90,
+                    15
+                ],
+                "align": "center",
+                "level": 1,
+                "maxWords": 10,
+                "defaultValue": "Protecting What Matters"
+            },
+            {
+                "type": "text",
+                "field": "subtitle",
+                "bounds": [
+                    10,
+                    92,
+                    80,
+                    5
+                ],
+                "align": "center",
+                "maxWords": 15,
+                "defaultValue": "2024 Corporate Social Responsibility Report"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Lato, sans-serif",
+        "backgroundColor": "#FFF8E1",
+        "color": "#333333"
+    }
+}

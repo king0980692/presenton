@@ -1,0 +1,168 @@
+{
+  "name": "tech-innovator",
+  "ordered": false,
+  "slides": [
+    {
+      "id": "tech-innovator:overview",
+      "name": "Tech Innovation Overview",
+      "description": "A high-tech, structured layout suitable for semiconductor and technology reports.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "sidebar_bg": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "sidebar_title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "sidebar_text": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          },
+          "main_title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "growth_chart": {
+            "description": "Chart configuration",
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "bar",
+                  "line"
+                ]
+              },
+              "data": {
+                "minItems": 2,
+                "maxItems": 10,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "description": "Data label",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 20
+                    },
+                    "value": {
+                      "description": "Data value",
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1000
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "type",
+              "data"
+            ],
+            "additionalProperties": false
+          },
+          "key_kpis": {
+            "description": "Key metrics to display",
+            "minItems": 1,
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "Metric value",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 10
+                },
+                "label": {
+                  "description": "Metric label",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 20
+                },
+                "description": {
+                  "description": "Metric description",
+                  "type": "string",
+                  "maxLength": 100
+                }
+              },
+              "required": [
+                "value",
+                "label",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "logo_accent": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "sidebar_bg",
+          "sidebar_title",
+          "sidebar_text",
+          "main_title",
+          "growth_chart",
+          "key_kpis",
+          "logo_accent"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

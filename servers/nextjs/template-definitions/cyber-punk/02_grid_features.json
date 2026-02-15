@@ -1,0 +1,53 @@
+{
+    "templateName": "cyber-punk",
+    "layoutId": "02_grid_features",
+    "layoutName": "Holographic Features",
+    "layoutDescription": "4-grid feature list with icons",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "title",
+                "bounds": [
+                    5,
+                    5,
+                    90,
+                    10
+                ],
+                "align": "left",
+                "level": 2,
+                "defaultValue": "CORE MODULES"
+            },
+            {
+                "type": "table",
+                "field": "specs",
+                "bounds": [
+                    50,
+                    20,
+                    45,
+                    70
+                ],
+                "maxRows": 5,
+                "maxCols": 2
+            },
+            {
+                "type": "image",
+                "field": "hero",
+                "bounds": [
+                    5,
+                    20,
+                    40,
+                    70
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "holographic user interface 3d visualization blue wireframe"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Rajdhani",
+        "backgroundColor": "#0A0A0A",
+        "color": "#E0E0E0"
+    }
+}

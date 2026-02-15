@@ -1,0 +1,55 @@
+{
+    "templateName": "esg-full-report",
+    "layoutId": "kpi-highlights",
+    "layoutName": "2. Key Highlights",
+    "layoutDescription": "Showcase key achievements in numbers.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "section_title",
+                "bounds": [
+                    5,
+                    5,
+                    90,
+                    10
+                ],
+                "level": 2,
+                "align": "left",
+                "zIndex": 10,
+                "defaultValue": "Key Achievements"
+            },
+            {
+                "type": "metrics",
+                "field": "kpis",
+                "bounds": [
+                    5,
+                    20,
+                    90,
+                    60
+                ],
+                "zIndex": 10,
+                "max": 4,
+                "direction": "horizontal",
+                "defaultValue": [
+                    {
+                        "value": "30%",
+                        "label": "Carbon Reduction",
+                        "description": "Compared to 2023 baseline"
+                    },
+                    {
+                        "value": "$5M",
+                        "label": "Community Investment",
+                        "description": "Donated to local charities"
+                    },
+                    {
+                        "value": "45%",
+                        "label": "Female Leadership",
+                        "description": "Board of Directors diversity"
+                    }
+                ]
+            }
+        ]
+    }
+}

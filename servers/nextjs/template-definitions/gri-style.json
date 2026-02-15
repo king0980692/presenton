@@ -1,0 +1,86 @@
+{
+    "templateName": "custom",
+    "layoutId": "gri-index-table",
+    "layoutName": "GRI Index Table",
+    "layoutDescription": "Professional table layout for GRI/SASB content indexes.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "table_title",
+                "bounds": [
+                    5,
+                    5,
+                    90,
+                    8
+                ],
+                "level": 2,
+                "align": "left",
+                "zIndex": 10,
+                "defaultValue": "GRI Content Index"
+            },
+            {
+                "type": "table",
+                "field": "gri_data",
+                "bounds": [
+                    5,
+                    18,
+                    90,
+                    75
+                ],
+                "zIndex": 10,
+                "maxRows": 15,
+                "maxCols": 3,
+                "defaultValue": {
+                    "headers": [
+                        "GRI Standard",
+                        "Disclosure",
+                        "Page Number"
+                    ],
+                    "rows": [
+                        [
+                            "GRI 2-1",
+                            "Organizational details",
+                            "P. 5"
+                        ],
+                        [
+                            "GRI 2-2",
+                            "Entities included",
+                            "P. 6"
+                        ],
+                        [
+                            "GRI 2-3",
+                            "Reporting period",
+                            "P. 6"
+                        ],
+                        [
+                            "GRI 2-4",
+                            "Restatements of information",
+                            "P. 7"
+                        ],
+                        [
+                            "GRI 2-5",
+                            "External assurance",
+                            "P. 8"
+                        ]
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "field": "watermark",
+                "bounds": [
+                    70,
+                    0,
+                    30,
+                    15
+                ],
+                "fitMode": "contain",
+                "zIndex": 5,
+                "defaultPrompt": "simple corporate logo grey watermark",
+                "opacity": 0.1
+            }
+        ]
+    }
+}

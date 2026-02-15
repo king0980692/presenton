@@ -1,0 +1,71 @@
+{
+    "templateName": "tech-innovator",
+    "layoutId": "cover",
+    "layoutName": "Tech Cover Page",
+    "layoutDescription": "Bold cover page with logo and large title.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "image",
+                "field": "bg_tech",
+                "bounds": [
+                    0,
+                    0,
+                    100,
+                    100
+                ],
+                "fitMode": "cover",
+                "zIndex": 0,
+                "defaultPrompt": "abstract technology circuit lines blue dark background",
+                "opacity": 0.95
+            },
+            {
+                "type": "heading",
+                "field": "report_title",
+                "bounds": [
+                    10,
+                    35,
+                    80,
+                    20
+                ],
+                "align": "left",
+                "level": 1,
+                "zIndex": 10,
+                "defaultValue": "Annual Sustainability Report 2025",
+                "style": {
+                    "color": "#FFFFFF"
+                }
+            },
+            {
+                "type": "image",
+                "field": "company_logo",
+                "bounds": [
+                    10,
+                    10,
+                    15,
+                    10
+                ],
+                "fitMode": "contain",
+                "zIndex": 10
+            },
+            {
+                "type": "text",
+                "field": "subtitle_tech",
+                "bounds": [
+                    10,
+                    55,
+                    60,
+                    10
+                ],
+                "zIndex": 10,
+                "defaultValue": "Innovation for a Green Future",
+                "styleRef": "light-text"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Inter",
+        "backgroundColor": "#0F172A"
+    }
+}

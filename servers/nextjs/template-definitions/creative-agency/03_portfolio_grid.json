@@ -1,0 +1,77 @@
+{
+    "templateName": "creative-agency",
+    "layoutId": "03_portfolio_grid",
+    "layoutName": "Project Showcase",
+    "layoutDescription": "Masonry style image grid for portfolio",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "title",
+                "bounds": [
+                    5,
+                    5,
+                    30,
+                    10
+                ],
+                "align": "left",
+                "level": 2,
+                "defaultValue": "Recent Work"
+            },
+            {
+                "type": "image",
+                "field": "w1",
+                "bounds": [
+                    5,
+                    20,
+                    43,
+                    35
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "modern website ui design mockup laptop"
+            },
+            {
+                "type": "image",
+                "field": "w2",
+                "bounds": [
+                    52,
+                    20,
+                    43,
+                    35
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "branding package identity stationery colorful"
+            },
+            {
+                "type": "image",
+                "field": "w3",
+                "bounds": [
+                    5,
+                    60,
+                    43,
+                    35
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "mobile app interface iphone mockup dark mode"
+            },
+            {
+                "type": "image",
+                "field": "w4",
+                "bounds": [
+                    52,
+                    60,
+                    43,
+                    35
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "social media campaign graphics instagram post style"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Poppins",
+        "backgroundColor": "#F0F0F0",
+        "color": "#333"
+    }
+}

@@ -1,0 +1,128 @@
+{
+    "templateName": "tech-innovator",
+    "layoutId": "overview",
+    "layoutName": "Tech Innovation Overview",
+    "layoutDescription": "A high-tech, structured layout suitable for semiconductor and technology reports.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "image",
+                "field": "sidebar_bg",
+                "bounds": [
+                    0,
+                    0,
+                    30,
+                    100
+                ],
+                "fitMode": "cover",
+                "zIndex": 0,
+                "defaultPrompt": "abstract circuit board technology blue dark background",
+                "opacity": 0.9
+            },
+            {
+                "type": "heading",
+                "field": "sidebar_title",
+                "bounds": [
+                    2,
+                    5,
+                    26,
+                    20
+                ],
+                "align": "left",
+                "zIndex": 10,
+                "level": 2,
+                "defaultValue": "Innovation at Core"
+            },
+            {
+                "type": "text",
+                "field": "sidebar_text",
+                "bounds": [
+                    2,
+                    15,
+                    26,
+                    60
+                ],
+                "zIndex": 10,
+                "defaultValue": "Driving the future of technology through advanced manufacturing processes.",
+                "styleRef": "light-text"
+            },
+            {
+                "type": "heading",
+                "field": "main_title",
+                "bounds": [
+                    35,
+                    5,
+                    60,
+                    15
+                ],
+                "align": "left",
+                "zIndex": 1,
+                "level": 1,
+                "defaultValue": "Annual Sustainability Report"
+            },
+            {
+                "type": "chart",
+                "field": "growth_chart",
+                "bounds": [
+                    35,
+                    25,
+                    60,
+                    45
+                ],
+                "zIndex": 1,
+                "chartTypes": [
+                    "bar",
+                    "line"
+                ],
+                "defaultType": "bar"
+            },
+            {
+                "type": "metrics",
+                "field": "key_kpis",
+                "bounds": [
+                    35,
+                    75,
+                    60,
+                    20
+                ],
+                "zIndex": 1,
+                "max": 3,
+                "defaultValue": [
+                    {
+                        "value": "25%",
+                        "label": "Energy Efficiency",
+                        "description": "YoY Improvement"
+                    },
+                    {
+                        "value": "100%",
+                        "label": "Renewable Energy",
+                        "description": "Target by 2030"
+                    },
+                    {
+                        "value": "0",
+                        "label": "Incidents",
+                        "description": "Safety First"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "field": "logo_accent",
+                "bounds": [
+                    90,
+                    2,
+                    8,
+                    8
+                ],
+                "fitMode": "contain",
+                "zIndex": 5,
+                "defaultPrompt": "red square logo geometric"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Inter",
+        "backgroundColor": "#FFFFFF"
+    }
+}

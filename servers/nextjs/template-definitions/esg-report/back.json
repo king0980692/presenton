@@ -1,0 +1,66 @@
+{
+    "templateName": "esg-full-report",
+    "layoutId": "back-cover",
+    "layoutName": "6. Contact / Back Cover",
+    "layoutDescription": "Simple back cover with contact info.",
+    "structure": {
+        "type": "absolute",
+        "background": "#111827",
+        "elements": [
+            {
+                "type": "image",
+                "field": "logo_white",
+                "bounds": [
+                    40,
+                    30,
+                    20,
+                    20
+                ],
+                "fitMode": "contain",
+                "zIndex": 10,
+                "defaultPrompt": "white simple company logo icon vector",
+                "opacity": 1.0
+            },
+            {
+                "type": "heading",
+                "field": "thank_you",
+                "bounds": [
+                    10,
+                    55,
+                    80,
+                    10
+                ],
+                "level": 2,
+                "align": "center",
+                "zIndex": 10,
+                "defaultValue": "Thank You"
+            },
+            {
+                "type": "text",
+                "field": "contact_info",
+                "bounds": [
+                    20,
+                    70,
+                    60,
+                    20
+                ],
+                "align": "center",
+                "zIndex": 10,
+                "defaultValue": "Headquarters: 123 Sustainability Ave | Email: contact@example.com | Website: example-corp.com"
+            },
+            {
+                "type": "text",
+                "field": "disclaimer",
+                "bounds": [
+                    10,
+                    92,
+                    80,
+                    5
+                ],
+                "align": "center",
+                "zIndex": 10,
+                "defaultValue": "© 2024 Example Corp. All rights reserved."
+            }
+        ]
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "templateName": "tsmc-style",
+    "layoutId": "back-cover",
+    "layoutName": "Back Cover",
+    "layoutDescription": "Simple closing page with contact information.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "image",
+                "field": "bg",
+                "bounds": [
+                    0,
+                    0,
+                    100,
+                    100
+                ],
+                "fitMode": "cover",
+                "zIndex": -1,
+                "defaultPrompt": "abstract digital network darker blue background"
+            },
+            {
+                "type": "heading",
+                "field": "closing",
+                "bounds": [
+                    10,
+                    40,
+                    80,
+                    10
+                ],
+                "align": "center",
+                "level": 2,
+                "defaultValue": "Thank You"
+            },
+            {
+                "type": "text",
+                "field": "contact",
+                "bounds": [
+                    20,
+                    55,
+                    60,
+                    20
+                ],
+                "align": "center",
+                "maxWords": 30,
+                "defaultValue": "www.tsmc.com | esg@tsmc.com"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Inter",
+        "backgroundColor": "#003366",
+        "color": "#FFFFFF"
+    }
+}

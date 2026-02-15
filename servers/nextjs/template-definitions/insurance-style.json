@@ -1,0 +1,79 @@
+{
+    "templateName": "custom",
+    "layoutId": "insurance-care-layout",
+    "layoutName": "Insurance CSR Report",
+    "layoutDescription": "Warm and human-centric layout for corporate social responsibility reports.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "main_title",
+                "bounds": [
+                    5,
+                    6,
+                    90,
+                    12
+                ],
+                "level": 1,
+                "align": "center",
+                "zIndex": 10
+            },
+            {
+                "type": "image",
+                "field": "hero_image",
+                "bounds": [
+                    5,
+                    22,
+                    40,
+                    70
+                ],
+                "fitMode": "cover",
+                "zIndex": 5,
+                "defaultPrompt": "happy family diverse community insurance care warm lighting",
+                "borderRadius": "8px"
+            },
+            {
+                "type": "bullets",
+                "field": "csr_highlights",
+                "bounds": [
+                    50,
+                    22,
+                    45,
+                    70
+                ],
+                "zIndex": 10,
+                "maxItems": 4,
+                "withIcons": true,
+                "defaultValue": [
+                    {
+                        "title": "Community Outreach",
+                        "description": "Supported 50+ local charities through volunteer programs."
+                    },
+                    {
+                        "title": "Health Education",
+                        "description": "Organized 200 free health seminars for the elderly."
+                    },
+                    {
+                        "title": "Disaster Relief",
+                        "description": "Donated $1M to emergency relief funds."
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "field": "bg_pattern",
+                "bounds": [
+                    0,
+                    80,
+                    100,
+                    20
+                ],
+                "fitMode": "cover",
+                "zIndex": 0,
+                "defaultPrompt": "soft orange gradient wave abstract",
+                "opacity": 0.3
+            }
+        ]
+    }
+}

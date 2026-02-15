@@ -1,0 +1,122 @@
+{
+    "templateName": "finance-trust",
+    "layoutId": "annual-highlight",
+    "layoutName": "Financial Trust Highlight",
+    "layoutDescription": "A warm, trustworthy layout for financial and insurance reports.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "image",
+                "field": "header_image",
+                "bounds": [
+                    0,
+                    0,
+                    100,
+                    35
+                ],
+                "fitMode": "cover",
+                "zIndex": 0,
+                "defaultPrompt": "happy family sunny park insurance warm lighting",
+                "opacity": 1.0
+            },
+            {
+                "type": "image",
+                "field": "white_overlay",
+                "bounds": [
+                    0,
+                    25,
+                    100,
+                    15
+                ],
+                "fitMode": "fill",
+                "zIndex": 1,
+                "defaultPrompt": "white gradient fade up",
+                "opacity": 0.8
+            },
+            {
+                "type": "heading",
+                "field": "page_title",
+                "bounds": [
+                    5,
+                    28,
+                    90,
+                    10
+                ],
+                "align": "left",
+                "zIndex": 10,
+                "level": 1,
+                "defaultValue": "Commitment to Care"
+            },
+            {
+                "type": "text",
+                "field": "intro_text",
+                "bounds": [
+                    5,
+                    40,
+                    55,
+                    15
+                ],
+                "zIndex": 10,
+                "defaultValue": "We provide comprehensive protection for what matters most to you."
+            },
+            {
+                "type": "bullets",
+                "field": "highlights",
+                "bounds": [
+                    5,
+                    60,
+                    50,
+                    35
+                ],
+                "zIndex": 10,
+                "maxItems": 3,
+                "withIcons": true,
+                "defaultValue": [
+                    {
+                        "title": "Customer First",
+                        "description": "24/7 support line for all policy holders."
+                    },
+                    {
+                        "title": "Rapid Claims",
+                        "description": "Average claim processing time under 48 hours."
+                    },
+                    {
+                        "title": "Community Support",
+                        "description": "Investing 5% of profits into local development."
+                    }
+                ]
+            },
+            {
+                "type": "table",
+                "field": "financial_data",
+                "bounds": [
+                    60,
+                    50,
+                    35,
+                    45
+                ],
+                "zIndex": 10,
+                "maxRows": 4,
+                "maxCols": 2
+            },
+            {
+                "type": "image",
+                "field": "orange_stripe",
+                "bounds": [
+                    0,
+                    98,
+                    100,
+                    2
+                ],
+                "fitMode": "cover",
+                "zIndex": 20,
+                "defaultPrompt": "orange solid color"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Merriweather",
+        "backgroundColor": "#FAFAF9"
+    }
+}

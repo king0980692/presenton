@@ -1,0 +1,51 @@
+{
+    "templateName": "modern-minimalist",
+    "layoutId": "minimal-content",
+    "layoutName": "3. Executive Letter",
+    "layoutDescription": "Content heavy layout with signature style.",
+    "structure": {
+        "type": "two-column",
+        "background": "#FFFFFF",
+        "columns": [
+            {
+                "width": "60%",
+                "justify": "start",
+                "elements": [
+                    {
+                        "type": "heading",
+                        "field": "msg_title",
+                        "align": "left",
+                        "level": 2,
+                        "defaultValue": "A Letter from Our CEO"
+                    },
+                    {
+                        "type": "text",
+                        "field": "msg_body",
+                        "maxWords": 300,
+                        "overflow": "scroll",
+                        "defaultValue": "Sustainability is not just a buzzword for us. It is the cornerstone of our business strategy..."
+                    },
+                    {
+                        "type": "text",
+                        "field": "signature",
+                        "align": "right",
+                        "defaultValue": "– John Doe, CEO"
+                    }
+                ]
+            },
+            {
+                "width": "40%",
+                "justify": "center",
+                "elements": [
+                    {
+                        "type": "image",
+                        "field": "portrait",
+                        "fitMode": "cover",
+                        "defaultPrompt": "professional CEO portrait grey background minimalist",
+                        "borderRadius": "0px"
+                    }
+                ]
+            }
+        ]
+    }
+}

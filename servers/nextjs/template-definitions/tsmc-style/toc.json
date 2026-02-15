@@ -1,0 +1,53 @@
+{
+    "templateName": "tsmc-style",
+    "layoutId": "toc",
+    "layoutName": "Table of Contents",
+    "layoutDescription": "Clean list layout for report sections.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "page_title",
+                "bounds": [
+                    5,
+                    5,
+                    90,
+                    10
+                ],
+                "align": "left",
+                "level": 2,
+                "defaultValue": "Table of Contents"
+            },
+            {
+                "type": "bullets",
+                "field": "chapters",
+                "bounds": [
+                    5,
+                    20,
+                    45,
+                    70
+                ],
+                "minItems": 3,
+                "maxItems": 8,
+                "withIcons": false
+            },
+            {
+                "type": "image",
+                "field": "side_img",
+                "bounds": [
+                    55,
+                    20,
+                    40,
+                    70
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "clean laboratory cleanroom technology"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Inter",
+        "backgroundColor": "#F8FAFC"
+    }
+}

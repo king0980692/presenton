@@ -1,0 +1,83 @@
+{
+    "templateName": "esg-full-report",
+    "layoutId": "materiality-matrix",
+    "layoutName": "1.5 Materiality Matrix",
+    "layoutDescription": "Scatter plot for materiality assessment.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "matrix_title",
+                "bounds": [
+                    5,
+                    5,
+                    90,
+                    8
+                ],
+                "level": 2,
+                "align": "center",
+                "zIndex": 10,
+                "defaultValue": "Materiality Matrix"
+            },
+            {
+                "type": "chart",
+                "field": "materiality_chart",
+                "bounds": [
+                    15,
+                    15,
+                    70,
+                    75
+                ],
+                "zIndex": 10,
+                "chartTypes": [
+                    "scatter"
+                ],
+                "defaultType": "scatter",
+                "defaultValue": {
+                    "title": "Stakeholder Importance vs Business Impact",
+                    "xAxisLabel": "Impact on Business",
+                    "yAxisLabel": "Importance to Stakeholders",
+                    "data": [
+                        {
+                            "label": "Climate Change",
+                            "x": 90,
+                            "y": 95,
+                            "z": 10
+                        },
+                        {
+                            "label": "Data Privacy",
+                            "x": 85,
+                            "y": 80,
+                            "z": 8
+                        },
+                        {
+                            "label": "Ethics",
+                            "x": 80,
+                            "y": 90,
+                            "z": 9
+                        },
+                        {
+                            "label": "Diversity",
+                            "x": 70,
+                            "y": 75,
+                            "z": 7
+                        },
+                        {
+                            "label": "Water Mgmt",
+                            "x": 60,
+                            "y": 85,
+                            "z": 8
+                        },
+                        {
+                            "label": "Supply Chain",
+                            "x": 75,
+                            "y": 70,
+                            "z": 6
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

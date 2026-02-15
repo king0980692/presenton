@@ -1,0 +1,67 @@
+{
+    "templateName": "creative-agency",
+    "layoutId": "01_cover",
+    "layoutName": "Pop Art Cover",
+    "layoutDescription": "Bold colorful shapes with big text",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "image",
+                "field": "blob1",
+                "bounds": [
+                    -10,
+                    -10,
+                    50,
+                    50
+                ],
+                "fitMode": "contain",
+                "zIndex": 0,
+                "defaultPrompt": "abstract organic blob shape yellow vector style flat"
+            },
+            {
+                "type": "image",
+                "field": "blob2",
+                "bounds": [
+                    60,
+                    50,
+                    50,
+                    60
+                ],
+                "fitMode": "contain",
+                "zIndex": 0,
+                "defaultPrompt": "abstract organic blob shape teal vector style flat"
+            },
+            {
+                "type": "heading",
+                "field": "title",
+                "bounds": [
+                    15,
+                    30,
+                    70,
+                    25
+                ],
+                "align": "center",
+                "level": 1,
+                "defaultValue": "WE CREATE MAGIC"
+            },
+            {
+                "type": "text",
+                "field": "sub",
+                "bounds": [
+                    25,
+                    55,
+                    50,
+                    10
+                ],
+                "align": "center",
+                "defaultValue": "Digital Marketing • Branding • Design"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Poppins",
+        "backgroundColor": "#F7F9FC",
+        "color": "#2D3436"
+    }
+}

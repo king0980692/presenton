@@ -1,0 +1,109 @@
+{
+    "templateName": "custom",
+    "layoutId": "sdgs-icons-grid",
+    "layoutName": "SDGs Goals Grid",
+    "layoutDescription": "Grid layout for displaying UN Sustainable Development Goals.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "sdg_title",
+                "bounds": [
+                    5,
+                    8,
+                    90,
+                    10
+                ],
+                "level": 1,
+                "align": "center",
+                "zIndex": 10,
+                "defaultValue": "Our Commitment to SDGs"
+            },
+            {
+                "type": "text",
+                "field": "sdg_intro",
+                "bounds": [
+                    15,
+                    20,
+                    70,
+                    8
+                ],
+                "zIndex": 10,
+                "defaultValue": "We align our business strategies with 6 key sustainable development goals.",
+                "align": "center"
+            },
+            {
+                "type": "bullets",
+                "field": "sdg_grid",
+                "bounds": [
+                    10,
+                    35,
+                    80,
+                    55
+                ],
+                "zIndex": 10,
+                "maxItems": 6,
+                "withIcons": true,
+                "defaultValue": [
+                    {
+                        "title": "No Poverty",
+                        "description": "Supporting local economy",
+                        "icon": {
+                            "__icon_query__": "wallet"
+                        }
+                    },
+                    {
+                        "title": "Good Health",
+                        "description": "Employee wellness programs",
+                        "icon": {
+                            "__icon_query__": "heart"
+                        }
+                    },
+                    {
+                        "title": "Quality Education",
+                        "description": "Scholarships for students",
+                        "icon": {
+                            "__icon_query__": "book"
+                        }
+                    },
+                    {
+                        "title": "Clean Energy",
+                        "description": "100% renewable energy by 2030",
+                        "icon": {
+                            "__icon_query__": "sun"
+                        }
+                    },
+                    {
+                        "title": "Climate Action",
+                        "description": "Carbon neutral operations",
+                        "icon": {
+                            "__icon_query__": "cloud"
+                        }
+                    },
+                    {
+                        "title": "Life on Land",
+                        "description": "Biodiversity protection",
+                        "icon": {
+                            "__icon_query__": "tree"
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "field": "bg_decoration",
+                "bounds": [
+                    0,
+                    90,
+                    100,
+                    10
+                ],
+                "fitMode": "cover",
+                "zIndex": 0,
+                "defaultPrompt": "colorful abstract rainbow bar bottom",
+                "opacity": 0.8
+            }
+        ]
+    }
+}

@@ -1,0 +1,100 @@
+{
+    "templateName": "insurance-style",
+    "layoutId": "highlights",
+    "layoutName": "Community Highlights",
+    "layoutDescription": "3-column layout for key achievements.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "heading",
+                "bounds": [
+                    5,
+                    5,
+                    90,
+                    10
+                ],
+                "align": "center",
+                "level": 2,
+                "defaultValue": "Our Commitment"
+            },
+            {
+                "type": "image",
+                "field": "img_1",
+                "bounds": [
+                    5,
+                    20,
+                    28,
+                    30
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "community volunteers working together"
+            },
+            {
+                "type": "text",
+                "field": "desc_1",
+                "bounds": [
+                    5,
+                    52,
+                    28,
+                    40
+                ],
+                "maxWords": 50,
+                "defaultValue": "Community Support Programs"
+            },
+            {
+                "type": "image",
+                "field": "img_2",
+                "bounds": [
+                    36,
+                    20,
+                    28,
+                    30
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "doctor consultation senior citizen care"
+            },
+            {
+                "type": "text",
+                "field": "desc_2",
+                "bounds": [
+                    36,
+                    52,
+                    28,
+                    40
+                ],
+                "maxWords": 50,
+                "defaultValue": "Elderly Care Initiatives"
+            },
+            {
+                "type": "image",
+                "field": "img_3",
+                "bounds": [
+                    67,
+                    20,
+                    28,
+                    30
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "planting trees green environmental park"
+            },
+            {
+                "type": "text",
+                "field": "desc_3",
+                "bounds": [
+                    67,
+                    52,
+                    28,
+                    40
+                ],
+                "maxWords": 50,
+                "defaultValue": "Environmental Stewardship"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Lato",
+        "backgroundColor": "#FFFFFF"
+    }
+}

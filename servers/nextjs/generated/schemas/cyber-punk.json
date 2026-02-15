@@ -1,0 +1,139 @@
+{
+  "name": "cyber-punk",
+  "ordered": false,
+  "slides": [
+    {
+      "id": "cyber-punk:01_cover",
+      "name": "Neon Cover",
+      "description": "High impact neon title with dark digital background",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "bg": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "subtitle": {
+            "description": "Descriptive text. Max 15 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 105
+          },
+          "tag": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          }
+        },
+        "required": [
+          "bg",
+          "title",
+          "subtitle",
+          "tag"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "cyber-punk:02_grid_features",
+      "name": "Holographic Features",
+      "description": "4-grid feature list with icons",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "specs": {
+            "description": "Table data with headers and rows",
+            "type": "object",
+            "properties": {
+              "headers": {
+                "minItems": 2,
+                "maxItems": 2,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "rows": {
+                "minItems": 1,
+                "maxItems": 5,
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "required": [
+              "headers",
+              "rows"
+            ],
+            "additionalProperties": false
+          },
+          "hero": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "specs",
+          "hero"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

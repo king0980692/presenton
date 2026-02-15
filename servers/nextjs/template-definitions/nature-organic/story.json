@@ -1,0 +1,44 @@
+{
+    "templateName": "nature-organic",
+    "layoutId": "organic-story",
+    "layoutName": "2. Our Story",
+    "layoutDescription": "Layout with circular image and storytelling space.",
+    "structure": {
+        "type": "two-column",
+        "background": "#F2F0E6",
+        "columns": [
+            {
+                "width": "40%",
+                "justify": "center",
+                "elements": [
+                    {
+                        "type": "image",
+                        "field": "story_img",
+                        "fitMode": "cover",
+                        "defaultPrompt": "hands holding sapling soil nature",
+                        "borderRadius": "50%"
+                    }
+                ]
+            },
+            {
+                "width": "60%",
+                "justify": "start",
+                "elements": [
+                    {
+                        "type": "heading",
+                        "field": "story_title",
+                        "align": "left",
+                        "level": 2,
+                        "defaultValue": "Rooted in Community"
+                    },
+                    {
+                        "type": "text",
+                        "field": "story_body",
+                        "maxWords": 200,
+                        "defaultValue": "Just like a tree needs strong roots, our commitment to sustainability is grounded in local communities..."
+                    }
+                ]
+            }
+        ]
+    }
+}

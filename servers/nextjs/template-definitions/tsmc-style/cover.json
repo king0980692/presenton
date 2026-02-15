@@ -1,0 +1,79 @@
+{
+    "templateName": "tsmc-style",
+    "layoutId": "cover",
+    "layoutName": "TSMC Cover Page",
+    "layoutDescription": "Professional cover with corporate branding.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "image",
+                "field": "logo",
+                "bounds": [
+                    5,
+                    5,
+                    20,
+                    10
+                ],
+                "fitMode": "contain",
+                "defaultPrompt": "tsmc logo blue"
+            },
+            {
+                "type": "heading",
+                "field": "title",
+                "bounds": [
+                    5,
+                    30,
+                    80,
+                    20
+                ],
+                "align": "left",
+                "level": 1,
+                "maxWords": 10,
+                "defaultValue": "2024 Sustainability Report"
+            },
+            {
+                "type": "text",
+                "field": "subtitle",
+                "bounds": [
+                    5,
+                    52,
+                    60,
+                    10
+                ],
+                "maxWords": 20,
+                "defaultValue": "Driving Innovation for a Sustainable Future."
+            },
+            {
+                "type": "image",
+                "field": "hero_bg",
+                "bounds": [
+                    40,
+                    0,
+                    60,
+                    100
+                ],
+                "fitMode": "cover",
+                "zIndex": -1,
+                "defaultPrompt": "futuristic chip wafer macro photography blue technology"
+            },
+            {
+                "type": "text",
+                "field": "year",
+                "bounds": [
+                    5,
+                    85,
+                    20,
+                    5
+                ],
+                "maxWords": 2,
+                "defaultValue": "2024"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Inter, sans-serif",
+        "backgroundColor": "#FFFFFF",
+        "accentColor": "#003366"
+    }
+}

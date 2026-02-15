@@ -1,0 +1,65 @@
+{
+    "templateName": "esg-full-report",
+    "layoutId": "cover",
+    "layoutName": "1. Report Cover",
+    "layoutDescription": "Professional cover page for ESG report.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "image",
+                "field": "bg_image",
+                "bounds": [
+                    0,
+                    0,
+                    100,
+                    100
+                ],
+                "fitMode": "cover",
+                "zIndex": 0,
+                "defaultPrompt": "sustainable city green technology sunlight eco-friendly architecture",
+                "opacity": 0.3
+            },
+            {
+                "type": "heading",
+                "field": "report_title",
+                "bounds": [
+                    10,
+                    30,
+                    80,
+                    20
+                ],
+                "level": 1,
+                "align": "center",
+                "zIndex": 10,
+                "defaultValue": "2024 Sustainability Report"
+            },
+            {
+                "type": "text",
+                "field": "subtitle",
+                "bounds": [
+                    20,
+                    50,
+                    60,
+                    10
+                ],
+                "zIndex": 10,
+                "align": "center",
+                "defaultValue": "Creating a Sustainable Future Together"
+            },
+            {
+                "type": "text",
+                "field": "company_name",
+                "bounds": [
+                    10,
+                    80,
+                    80,
+                    5
+                ],
+                "zIndex": 10,
+                "align": "center",
+                "defaultValue": "Example Corp Ltd."
+            }
+        ]
+    }
+}

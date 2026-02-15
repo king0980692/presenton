@@ -1,0 +1,101 @@
+{
+    "templateName": "creative-agency",
+    "layoutId": "02_team_bubbles",
+    "layoutName": "Our Team",
+    "layoutDescription": "Circular team member photos",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "title",
+                "bounds": [
+                    5,
+                    5,
+                    90,
+                    10
+                ],
+                "align": "center",
+                "level": 2,
+                "defaultValue": "MEET THE CREATORS"
+            },
+            {
+                "type": "image",
+                "field": "p1",
+                "bounds": [
+                    10,
+                    25,
+                    20,
+                    35
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "portrait creative designer glasses colorful background studio"
+            },
+            {
+                "type": "text",
+                "field": "n1",
+                "bounds": [
+                    10,
+                    62,
+                    20,
+                    5
+                ],
+                "align": "center",
+                "defaultValue": "Alex - Art Director"
+            },
+            {
+                "type": "image",
+                "field": "p2",
+                "bounds": [
+                    40,
+                    25,
+                    20,
+                    35
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "portrait young developer smiling diverse"
+            },
+            {
+                "type": "text",
+                "field": "n2",
+                "bounds": [
+                    40,
+                    62,
+                    20,
+                    5
+                ],
+                "align": "center",
+                "defaultValue": "Sam - Lead Dev"
+            },
+            {
+                "type": "image",
+                "field": "p3",
+                "bounds": [
+                    70,
+                    25,
+                    20,
+                    35
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "portrait marketing manager professional casual"
+            },
+            {
+                "type": "text",
+                "field": "n3",
+                "bounds": [
+                    70,
+                    62,
+                    20,
+                    5
+                ],
+                "align": "center",
+                "defaultValue": "Jordan - Strategy"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Open Sans",
+        "backgroundColor": "#FFFFFF",
+        "color": "#2D3436"
+    }
+}

@@ -1,0 +1,106 @@
+{
+  "name": "sdgs-style",
+  "ordered": false,
+  "slides": [
+    {
+      "id": "sdgs-style:sdgs-icons-grid",
+      "name": "SDGs Goals Grid",
+      "description": "Grid layout for displaying UN Sustainable Development Goals.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "sdg_title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "sdg_intro": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          },
+          "sdg_grid": {
+            "description": "List of bullet points with icons",
+            "minItems": 1,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Bullet title",
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 30
+                },
+                "description": {
+                  "description": "Bullet description",
+                  "type": "string",
+                  "minLength": 10,
+                  "maxLength": 150
+                },
+                "icon": {
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "description": "Icon URL",
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "description": "Icon search query",
+                      "type": "string",
+                      "minLength": 2,
+                      "maxLength": 20
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "title",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "bg_decoration": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "sdg_title",
+          "sdg_intro",
+          "sdg_grid",
+          "bg_decoration"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

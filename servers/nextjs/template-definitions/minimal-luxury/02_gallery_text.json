@@ -1,0 +1,66 @@
+{
+    "templateName": "minimal-luxury",
+    "layoutId": "02_gallery_text",
+    "layoutName": "Gallery Showcase",
+    "layoutDescription": "Vertical image strip with descriptive text",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "image",
+                "field": "img1",
+                "bounds": [
+                    5,
+                    10,
+                    28,
+                    60
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "minimalist interior design white room plant"
+            },
+            {
+                "type": "image",
+                "field": "img2",
+                "bounds": [
+                    36,
+                    30,
+                    28,
+                    60
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "abstract beige sculpture art detail"
+            },
+            {
+                "type": "heading",
+                "field": "head",
+                "bounds": [
+                    70,
+                    20,
+                    25,
+                    20
+                ],
+                "align": "left",
+                "level": 2,
+                "defaultValue": "Curated Spaces"
+            },
+            {
+                "type": "text",
+                "field": "desc",
+                "bounds": [
+                    70,
+                    45,
+                    25,
+                    40
+                ],
+                "align": "left",
+                "maxWords": 60,
+                "defaultValue": "We believe in the power of negative space. Less clutter means more clarity."
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Lato",
+        "backgroundColor": "#FFFFFF",
+        "color": "#333333"
+    }
+}

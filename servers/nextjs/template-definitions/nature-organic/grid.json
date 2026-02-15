@@ -1,0 +1,96 @@
+{
+    "templateName": "nature-organic",
+    "layoutId": "organic-grid",
+    "layoutName": "3. Green Actions",
+    "layoutDescription": "Grid of key environmental actions with icons.",
+    "structure": {
+        "type": "absolute",
+        "background": "#E8F5E9",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "grid_title",
+                "bounds": [
+                    5,
+                    5,
+                    90,
+                    10
+                ],
+                "level": 2,
+                "align": "center",
+                "zIndex": 10,
+                "defaultValue": "Key Actions Taken"
+            },
+            {
+                "type": "description",
+                "field": "grid_intro",
+                "bounds": [
+                    20,
+                    15,
+                    60,
+                    8
+                ],
+                "align": "center",
+                "zIndex": 10,
+                "defaultValue": "Small steps lead to big change."
+            },
+            {
+                "type": "bullets",
+                "field": "action_points",
+                "bounds": [
+                    10,
+                    25,
+                    80,
+                    70
+                ],
+                "zIndex": 10,
+                "maxItems": 6,
+                "withIcons": true,
+                "defaultValue": [
+                    {
+                        "title": "Less Plastic",
+                        "description": "Removed single-use plastics from cafeteria",
+                        "icon": {
+                            "__icon_query__": "coffee"
+                        }
+                    },
+                    {
+                        "title": "Solar Roof",
+                        "description": "Installed 200 panels",
+                        "icon": {
+                            "__icon_query__": "sun"
+                        }
+                    },
+                    {
+                        "title": "Paperless",
+                        "description": "Digtal-first policy saved 500 reams",
+                        "icon": {
+                            "__icon_query__": "file"
+                        }
+                    },
+                    {
+                        "title": "Bike to Work",
+                        "description": "Incentivized cycling",
+                        "icon": {
+                            "__icon_query__": "bike"
+                        }
+                    },
+                    {
+                        "title": "Water Saving",
+                        "description": "Smart taps installed",
+                        "icon": {
+                            "__icon_query__": "droplet"
+                        }
+                    },
+                    {
+                        "title": "Local Food",
+                        "description": "Canteens use local produce",
+                        "icon": {
+                            "__icon_query__": "apple"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "templateName": "esg-full-report",
+    "layoutId": "environment-chart",
+    "layoutName": "3. Environmental Data",
+    "layoutDescription": "Chart layout for environmental metrics.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "chart_title",
+                "bounds": [
+                    5,
+                    5,
+                    90,
+                    10
+                ],
+                "level": 2,
+                "align": "left",
+                "zIndex": 10,
+                "defaultValue": "Greenhouse Gas Emissions"
+            },
+            {
+                "type": "text",
+                "field": "chart_desc",
+                "bounds": [
+                    5,
+                    18,
+                    35,
+                    70
+                ],
+                "zIndex": 10,
+                "defaultValue": "Our Scope 1 and Scope 2 emissions have decreased significantly due to renewable energy adoption."
+            },
+            {
+                "type": "chart",
+                "field": "ghg_chart",
+                "bounds": [
+                    45,
+                    20,
+                    50,
+                    70
+                ],
+                "zIndex": 10,
+                "chartTypes": [
+                    "line",
+                    "bar"
+                ],
+                "defaultType": "line",
+                "defaultValue": {
+                    "title": "Emissions (tCO2e)",
+                    "data": [
+                        {
+                            "label": "2020",
+                            "value": 1200
+                        },
+                        {
+                            "label": "2021",
+                            "value": 1100
+                        },
+                        {
+                            "label": "2022",
+                            "value": 950
+                        },
+                        {
+                            "label": "2023",
+                            "value": 800
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
