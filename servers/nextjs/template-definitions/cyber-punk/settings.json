@@ -1,0 +1,18 @@
+{
+    "templateName": "CyberPunk Digital",
+    "description": "Bold, futuristic neon style with dark mode and glitch aesthetics for tech products.",
+    "ordered": true,
+    "default": false,
+    "themeName": "CyberPunk",
+    "fonts": {
+        "heading": "Orbitron",
+        "body": "Rajdhani"
+    },
+    "colors": {
+        "accent": "#00FF9D",
+        "secondaryAccent": "#FF0055",
+        "tertiaryAccent": "#1A1A1A",
+        "text": "#E0E0E0",
+        "background": "#050505"
+    }
+}

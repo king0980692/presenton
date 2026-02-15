@@ -65,7 +65,7 @@ const TemplateSelection: React.FC<TemplateSelectionProps> = ({
         const isCustom = templateID.toLowerCase().startsWith("custom-");
         return {
           id: templateID,
-          name: isCustom && customMeta?.name ? customMeta.name : templateID,
+          name: isCustom && customMeta?.name ? customMeta.name : (settings?.templateName || templateID),
           description: (isCustom && customMeta?.description) ? customMeta.description : (settings?.description || `${templateID} presentation templates`),
           ordered: settings?.ordered || false,
           default: settings?.default || false,

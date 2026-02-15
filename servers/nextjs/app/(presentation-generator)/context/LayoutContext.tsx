@@ -38,6 +38,7 @@ export interface FullDataInfo {
 }
 
 export interface TemplateSetting {
+  templateName?: string;
   description: string;
   ordered: boolean;
   default?: boolean;

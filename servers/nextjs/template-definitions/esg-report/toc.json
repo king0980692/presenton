@@ -1,0 +1,79 @@
+{
+    "templateName": "esg-full-report",
+    "layoutId": "toc",
+    "layoutName": "0. Table of Contents",
+    "layoutDescription": "Agenda slide listing report sections.",
+    "structure": {
+        "type": "two-column",
+        "columns": [
+            {
+                "width": "35%",
+                "justify": "center",
+                "background": "#F3F4F6",
+                "elements": [
+                    {
+                        "type": "heading",
+                        "field": "toc_title",
+                        "align": "left",
+                        "level": 1,
+                        "defaultValue": "AGENDA"
+                    },
+                    {
+                        "type": "text",
+                        "field": "toc_subtitle",
+                        "defaultValue": "Overview of our 2024 sustainability journey."
+                    }
+                ]
+            },
+            {
+                "width": "65%",
+                "justify": "center",
+                "elements": [
+                    {
+                        "type": "bullets",
+                        "field": "chapters",
+                        "maxItems": 5,
+                        "withIcons": true,
+                        "defaultValue": [
+                            {
+                                "title": "01. Introduction",
+                                "description": "Message from CEO & About Us",
+                                "icon": {
+                                    "__icon_query__": "info"
+                                }
+                            },
+                            {
+                                "title": "02. Environmental",
+                                "description": "Climate Action & Resource Management",
+                                "icon": {
+                                    "__icon_query__": "leaf"
+                                }
+                            },
+                            {
+                                "title": "03. Social",
+                                "description": "Human Capital & Community Engagement",
+                                "icon": {
+                                    "__icon_query__": "users"
+                                }
+                            },
+                            {
+                                "title": "04. Governance",
+                                "description": "Ethics, Compliance & Risk Management",
+                                "icon": {
+                                    "__icon_query__": "shield"
+                                }
+                            },
+                            {
+                                "title": "05. Appendix",
+                                "description": "GRI Content Index & SASB Tables",
+                                "icon": {
+                                    "__icon_query__": "list"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

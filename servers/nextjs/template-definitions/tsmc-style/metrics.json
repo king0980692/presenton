@@ -1,0 +1,70 @@
+{
+    "templateName": "tsmc-style",
+    "layoutId": "metrics",
+    "layoutName": "Key Performance Indicators",
+    "layoutDescription": "Data-heavy layout for showing ESG metrics.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "title",
+                "bounds": [
+                    5,
+                    5,
+                    90,
+                    10
+                ],
+                "align": "center",
+                "level": 2,
+                "defaultValue": "Environmental Performance"
+            },
+            {
+                "type": "chart",
+                "field": "chart_1",
+                "bounds": [
+                    5,
+                    20,
+                    44,
+                    35
+                ],
+                "chartTypes": [
+                    "bar",
+                    "line"
+                ],
+                "defaultType": "bar"
+            },
+            {
+                "type": "chart",
+                "field": "chart_2",
+                "bounds": [
+                    51,
+                    20,
+                    44,
+                    35
+                ],
+                "chartTypes": [
+                    "pie",
+                    "bar"
+                ],
+                "defaultType": "pie"
+            },
+            {
+                "type": "table",
+                "field": "data_table",
+                "bounds": [
+                    5,
+                    60,
+                    90,
+                    35
+                ],
+                "maxRows": 4,
+                "maxCols": 5
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Inter",
+        "backgroundColor": "#FFFFFF"
+    }
+}

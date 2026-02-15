@@ -1,0 +1,18 @@
+{
+    "templateName": "Minimal Luxury",
+    "description": "Elegant, high-end fashion style with serif fonts and ample whitespace.",
+    "ordered": true,
+    "default": false,
+    "themeName": "Minimal Luxury",
+    "fonts": {
+        "heading": "Playfair Display",
+        "body": "Lato"
+    },
+    "colors": {
+        "accent": "#D4AF37",
+        "secondaryAccent": "#F5F5F5",
+        "tertiaryAccent": "#FFFFFF",
+        "text": "#111111",
+        "background": "#FFFFFF"
+    }
+}

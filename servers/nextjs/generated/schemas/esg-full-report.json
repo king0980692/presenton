@@ -1,0 +1,520 @@
+{
+  "name": "esg-full-report",
+  "ordered": false,
+  "slides": [
+    {
+      "id": "esg-full-report:back-cover",
+      "name": "6. Contact / Back Cover",
+      "description": "Simple back cover with contact info.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "logo_white": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "thank_you": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "contact_info": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          },
+          "disclaimer": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          }
+        },
+        "required": [
+          "logo_white",
+          "thank_you",
+          "contact_info",
+          "disclaimer"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "esg-full-report:cover",
+      "name": "1. Report Cover",
+      "description": "Professional cover page for ESG report.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "bg_image": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "report_title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "subtitle": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          },
+          "company_name": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          }
+        },
+        "required": [
+          "bg_image",
+          "report_title",
+          "subtitle",
+          "company_name"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "esg-full-report:environment-chart",
+      "name": "3. Environmental Data",
+      "description": "Chart layout for environmental metrics.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "chart_title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "chart_desc": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          },
+          "ghg_chart": {
+            "description": "Chart configuration",
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "line",
+                  "bar"
+                ]
+              },
+              "data": {
+                "minItems": 2,
+                "maxItems": 10,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "description": "Data label",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 20
+                    },
+                    "value": {
+                      "description": "Data value",
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1000
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "type",
+              "data"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "chart_title",
+          "chart_desc",
+          "ghg_chart"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "esg-full-report:gri-appendix",
+      "name": "5. GRI Appendix",
+      "description": "Standard table for GRI content index.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "appendix_title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "gri_table": {
+            "description": "Table data with headers and rows",
+            "type": "object",
+            "properties": {
+              "headers": {
+                "minItems": 2,
+                "maxItems": 3,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "rows": {
+                "minItems": 1,
+                "maxItems": 10,
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "required": [
+              "headers",
+              "rows"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "appendix_title",
+          "gri_table"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "esg-full-report:kpi-highlights",
+      "name": "2. Key Highlights",
+      "description": "Showcase key achievements in numbers.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "section_title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "kpis": {
+            "description": "Key metrics to display",
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "Metric value",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 10
+                },
+                "label": {
+                  "description": "Metric label",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 20
+                },
+                "description": {
+                  "description": "Metric description",
+                  "type": "string",
+                  "maxLength": 100
+                }
+              },
+              "required": [
+                "value",
+                "label",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "section_title",
+          "kpis"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "esg-full-report:materiality-matrix",
+      "name": "1.5 Materiality Matrix",
+      "description": "Scatter plot for materiality assessment.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "matrix_title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "materiality_chart": {
+            "description": "Chart configuration",
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "scatter"
+                ]
+              },
+              "data": {
+                "minItems": 2,
+                "maxItems": 10,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "description": "Data label",
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 20
+                    },
+                    "value": {
+                      "description": "Data value",
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1000
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "type",
+              "data"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "matrix_title",
+          "materiality_chart"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "esg-full-report:social-impact",
+      "name": "4. Social Impact",
+      "description": "Layout for showcasing social initiatives with imagery.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "social_title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "event_photo": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "initiatives": {
+            "description": "List of bullet points",
+            "minItems": 1,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Bullet title",
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 30
+                },
+                "description": {
+                  "description": "Bullet description",
+                  "type": "string",
+                  "minLength": 10,
+                  "maxLength": 150
+                }
+              },
+              "required": [
+                "title",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "social_title",
+          "event_photo",
+          "initiatives"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "esg-full-report:toc",
+      "name": "0. Table of Contents",
+      "description": "Agenda slide listing report sections.",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "toc_title": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "toc_subtitle": {
+            "description": "Descriptive text. Max 50 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 350
+          },
+          "chapters": {
+            "description": "List of bullet points with icons",
+            "minItems": 1,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Bullet title",
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 30
+                },
+                "description": {
+                  "description": "Bullet description",
+                  "type": "string",
+                  "minLength": 10,
+                  "maxLength": 150
+                },
+                "icon": {
+                  "type": "object",
+                  "properties": {
+                    "__icon_url__": {
+                      "description": "Icon URL",
+                      "type": "string"
+                    },
+                    "__icon_query__": {
+                      "description": "Icon search query",
+                      "type": "string",
+                      "minLength": 2,
+                      "maxLength": 20
+                    }
+                  },
+                  "required": [
+                    "__icon_url__",
+                    "__icon_query__"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "title",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "toc_title",
+          "toc_subtitle",
+          "chapters"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

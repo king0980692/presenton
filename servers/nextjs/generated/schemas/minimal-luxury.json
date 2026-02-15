@@ -1,0 +1,80 @@
+{
+  "name": "minimal-luxury",
+  "ordered": false,
+  "slides": [
+    {
+      "id": "minimal-luxury:02_gallery_text",
+      "name": "Gallery Showcase",
+      "description": "Vertical image strip with descriptive text",
+      "json_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "img1": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "img2": {
+            "description": "Image with URL and prompt",
+            "type": "object",
+            "properties": {
+              "__image_url__": {
+                "description": "Image URL",
+                "type": "string",
+                "format": "uri"
+              },
+              "__image_prompt__": {
+                "description": "Image generation prompt",
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 100
+              }
+            },
+            "required": [
+              "__image_url__",
+              "__image_prompt__"
+            ],
+            "additionalProperties": false
+          },
+          "head": {
+            "description": "Main heading text. Max 10 words",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 70
+          },
+          "desc": {
+            "description": "Descriptive text. Max 60 words",
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 420
+          }
+        },
+        "required": [
+          "img1",
+          "img2",
+          "head",
+          "desc"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

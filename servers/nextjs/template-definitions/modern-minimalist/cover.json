@@ -1,0 +1,67 @@
+{
+    "templateName": "modern-minimalist",
+    "layoutId": "minimal-cover",
+    "layoutName": "1. Minimalist Cover",
+    "layoutDescription": "Clean, bold typography cover for modern reports.",
+    "structure": {
+        "type": "absolute",
+        "background": "#FFFFFF",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "year",
+                "bounds": [
+                    10,
+                    10,
+                    20,
+                    10
+                ],
+                "level": 1,
+                "align": "left",
+                "zIndex": 10,
+                "defaultValue": "2024"
+            },
+            {
+                "type": "heading",
+                "field": "title",
+                "bounds": [
+                    10,
+                    25,
+                    60,
+                    40
+                ],
+                "level": 1,
+                "align": "left",
+                "zIndex": 10,
+                "defaultValue": "ANNUAL ENVIRONMENTAL IMPACT"
+            },
+            {
+                "type": "text",
+                "field": "subtitle",
+                "bounds": [
+                    10,
+                    70,
+                    40,
+                    15
+                ],
+                "zIndex": 10,
+                "align": "left",
+                "defaultValue": "Transparency & Action - Sustainable Development"
+            },
+            {
+                "type": "image",
+                "field": "accent_image",
+                "bounds": [
+                    60,
+                    10,
+                    30,
+                    80
+                ],
+                "fitMode": "cover",
+                "zIndex": 5,
+                "defaultPrompt": "minimalist abstract white architecture blue sky",
+                "opacity": 1.0
+            }
+        ]
+    }
+}

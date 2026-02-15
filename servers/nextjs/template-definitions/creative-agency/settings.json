@@ -1,0 +1,18 @@
+{
+    "templateName": "Creative Agency",
+    "description": "Vibrant, bold and playful style for creative portfolios and pitches.",
+    "ordered": true,
+    "default": false,
+    "themeName": "Creative Pop",
+    "fonts": {
+        "heading": "Poppins",
+        "body": "Open Sans"
+    },
+    "colors": {
+        "accent": "#FF6B6B",
+        "secondaryAccent": "#4ECDC4",
+        "tertiaryAccent": "#FFE66D",
+        "text": "#2D3436",
+        "background": "#F7F9FC"
+    }
+}

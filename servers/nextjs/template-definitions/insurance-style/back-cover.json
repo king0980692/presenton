@@ -1,0 +1,42 @@
+{
+    "templateName": "insurance-style",
+    "layoutId": "back-cover",
+    "layoutName": "Report Back Cover",
+    "layoutDescription": "Soft ending page.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "title",
+                "bounds": [
+                    10,
+                    40,
+                    80,
+                    15
+                ],
+                "align": "center",
+                "level": 2,
+                "defaultValue": "Thank You for Your Trust"
+            },
+            {
+                "type": "text",
+                "field": "info",
+                "bounds": [
+                    20,
+                    60,
+                    60,
+                    30
+                ],
+                "align": "center",
+                "maxWords": 40,
+                "defaultValue": "Mercuries Life Insurance | CSR Department | www.mli.com.tw"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Lato",
+        "backgroundColor": "#FFEDCC",
+        "color": "#333333"
+    }
+}

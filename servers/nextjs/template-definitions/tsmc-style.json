@@ -1,0 +1,96 @@
+{
+    "templateName": "custom",
+    "layoutId": "tsmc-metrics-chart",
+    "layoutName": "Tech Sustainability Report",
+    "layoutDescription": "High-tech style layout focusing on key performance indicators and data visualization.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "title",
+                "bounds": [
+                    35,
+                    8,
+                    60,
+                    12
+                ],
+                "level": 1,
+                "align": "left",
+                "zIndex": 10
+            },
+            {
+                "type": "text",
+                "field": "subtitle",
+                "bounds": [
+                    35,
+                    22,
+                    60,
+                    10
+                ],
+                "zIndex": 10,
+                "maxWords": 30
+            },
+            {
+                "type": "metrics",
+                "field": "kpi_metrics",
+                "bounds": [
+                    5,
+                    8,
+                    25,
+                    84
+                ],
+                "zIndex": 10,
+                "max": 3,
+                "direction": "vertical",
+                "defaultValue": [
+                    {
+                        "value": "95%",
+                        "label": "Water Recycling",
+                        "description": "Process water recovery rate"
+                    },
+                    {
+                        "value": "12%",
+                        "label": "Energy Saving",
+                        "description": "Reduction in power consumption"
+                    },
+                    {
+                        "value": "0",
+                        "label": "Accidents",
+                        "description": "Major safety incidents"
+                    }
+                ]
+            },
+            {
+                "type": "chart",
+                "field": "performance_chart",
+                "bounds": [
+                    35,
+                    35,
+                    60,
+                    55
+                ],
+                "zIndex": 10,
+                "chartTypes": [
+                    "bar",
+                    "line"
+                ],
+                "defaultType": "bar"
+            },
+            {
+                "type": "image",
+                "field": "sidebar_bg",
+                "bounds": [
+                    0,
+                    0,
+                    30,
+                    100
+                ],
+                "fitMode": "cover",
+                "zIndex": 0,
+                "defaultPrompt": "abstract technology circuit board blue background",
+                "opacity": 0.8
+            }
+        ]
+    }
+}

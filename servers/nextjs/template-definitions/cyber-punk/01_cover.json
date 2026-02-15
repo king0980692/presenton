@@ -1,0 +1,67 @@
+{
+    "templateName": "cyber-punk",
+    "layoutId": "01_cover",
+    "layoutName": "Neon Cover",
+    "layoutDescription": "High impact neon title with dark digital background",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "image",
+                "field": "bg",
+                "bounds": [
+                    0,
+                    0,
+                    100,
+                    100
+                ],
+                "fitMode": "cover",
+                "zIndex": -1,
+                "defaultPrompt": "cyberpunk city street rain neon lights pink blue dark futuristic"
+            },
+            {
+                "type": "heading",
+                "field": "title",
+                "bounds": [
+                    5,
+                    40,
+                    90,
+                    20
+                ],
+                "align": "center",
+                "level": 1,
+                "defaultValue": "FUTURE TECH 2077"
+            },
+            {
+                "type": "text",
+                "field": "subtitle",
+                "bounds": [
+                    20,
+                    65,
+                    60,
+                    10
+                ],
+                "align": "center",
+                "maxWords": 15,
+                "defaultValue": "The next generation of digital evolution"
+            },
+            {
+                "type": "text",
+                "field": "tag",
+                "bounds": [
+                    5,
+                    5,
+                    20,
+                    5
+                ],
+                "align": "left",
+                "defaultValue": "SYSTEM_READY"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Orbitron",
+        "backgroundColor": "#050505",
+        "color": "#00FF9D"
+    }
+}

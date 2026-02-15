@@ -11,7 +11,7 @@
 import * as z from 'zod';
 import * as fs from 'fs';
 import * as path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -80,11 +80,13 @@ async function generateSchemas() {
       try {
         // 動態導入 layout 文件
         const modulePath = path.join(templateDir, file);
-        const module = await import(modulePath);
+        // Fix for Windows: use pathToFileURL
+        const moduleUrl = pathToFileURL(modulePath).href;
+        const module = await import(moduleUrl);
 
         // 檢查是否有 Schema export
         if (!module.Schema) {
-          console.log(`  Skipping ${file}: no Schema export`);
+          console.log(`  Skipping ${file}: no Schema export. Available exports: ${Object.keys(module).join(', ')}`);
           continue;
         }
 

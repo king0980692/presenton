@@ -1,0 +1,66 @@
+{
+    "templateName": "minimal-luxury",
+    "layoutId": "01_cover",
+    "layoutName": "Editorial Cover",
+    "layoutDescription": "Magazine style cover with large serif typography",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "image",
+                "field": "hero",
+                "bounds": [
+                    50,
+                    0,
+                    50,
+                    100
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "high fashion model minimal background beige aesthetic studio lighting"
+            },
+            {
+                "type": "heading",
+                "field": "brand",
+                "bounds": [
+                    5,
+                    10,
+                    40,
+                    10
+                ],
+                "align": "left",
+                "level": 1,
+                "defaultValue": "VOGUE"
+            },
+            {
+                "type": "heading",
+                "field": "title",
+                "bounds": [
+                    5,
+                    35,
+                    40,
+                    30
+                ],
+                "align": "left",
+                "level": 2,
+                "defaultValue": "The Art of\nMinimalism"
+            },
+            {
+                "type": "text",
+                "field": "issue",
+                "bounds": [
+                    5,
+                    90,
+                    20,
+                    5
+                ],
+                "align": "left",
+                "defaultValue": "ISSUE 24 • SPRING 2024"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Playfair Display",
+        "backgroundColor": "#FAFAFA",
+        "color": "#111111"
+    }
+}

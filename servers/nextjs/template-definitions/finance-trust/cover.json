@@ -1,0 +1,85 @@
+{
+    "templateName": "finance-trust",
+    "layoutId": "cover",
+    "layoutName": "Finance Cover Page",
+    "layoutDescription": "Professional and warm cover page for financial reports.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "image",
+                "field": "hero_cover",
+                "bounds": [
+                    0,
+                    0,
+                    100,
+                    60
+                ],
+                "fitMode": "cover",
+                "zIndex": 0,
+                "defaultPrompt": "warm sunlight office cityscape",
+                "opacity": 0.9
+            },
+            {
+                "type": "image",
+                "field": "brand_band",
+                "bounds": [
+                    0,
+                    58,
+                    100,
+                    42
+                ],
+                "fitMode": "cover",
+                "zIndex": 1,
+                "defaultPrompt": "soft beige texture paper",
+                "opacity": 1
+            },
+            {
+                "type": "heading",
+                "field": "cover_title",
+                "bounds": [
+                    10,
+                    65,
+                    80,
+                    15
+                ],
+                "align": "center",
+                "level": 1,
+                "zIndex": 10,
+                "defaultValue": "2025 Annual Financial Report",
+                "style": {
+                    "color": "#2C3E50"
+                }
+            },
+            {
+                "type": "text",
+                "field": "cover_subtitle",
+                "bounds": [
+                    20,
+                    82,
+                    60,
+                    10
+                ],
+                "zIndex": 10,
+                "defaultValue": "Building Trust, Delivering Value",
+                "align": "center"
+            },
+            {
+                "type": "image",
+                "field": "company_logo_cover",
+                "bounds": [
+                    45,
+                    52,
+                    10,
+                    12
+                ],
+                "fitMode": "contain",
+                "zIndex": 20
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Merriweather",
+        "backgroundColor": "#FAFAF9"
+    }
+}

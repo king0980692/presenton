@@ -1,0 +1,53 @@
+{
+    "templateName": "insurance-style",
+    "layoutId": "toc",
+    "layoutName": "Table of Contents",
+    "layoutDescription": "Soft layout for chapter listing.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "image",
+                "field": "side_img",
+                "bounds": [
+                    0,
+                    0,
+                    35,
+                    100
+                ],
+                "fitMode": "cover",
+                "defaultPrompt": "soft orange gradient abstract waves warm"
+            },
+            {
+                "type": "heading",
+                "field": "title",
+                "bounds": [
+                    40,
+                    10,
+                    55,
+                    10
+                ],
+                "align": "left",
+                "level": 2,
+                "defaultValue": "Contents"
+            },
+            {
+                "type": "bullets",
+                "field": "list",
+                "bounds": [
+                    40,
+                    25,
+                    55,
+                    65
+                ],
+                "minItems": 3,
+                "maxItems": 6,
+                "withIcons": false
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Lato",
+        "backgroundColor": "#FFFFFF"
+    }
+}

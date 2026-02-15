@@ -1,0 +1,72 @@
+{
+    "templateName": "esg-full-report",
+    "layoutId": "gri-appendix",
+    "layoutName": "5. GRI Appendix",
+    "layoutDescription": "Standard table for GRI content index.",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "appendix_title",
+                "bounds": [
+                    5,
+                    5,
+                    90,
+                    10
+                ],
+                "level": 2,
+                "align": "left",
+                "zIndex": 10,
+                "defaultValue": "GRI Content Index"
+            },
+            {
+                "type": "table",
+                "field": "gri_table",
+                "bounds": [
+                    5,
+                    20,
+                    90,
+                    70
+                ],
+                "zIndex": 10,
+                "maxRows": 10,
+                "maxCols": 3,
+                "defaultValue": {
+                    "headers": [
+                        "Standard",
+                        "Disclosure",
+                        "Location"
+                    ],
+                    "rows": [
+                        [
+                            "GRI 2-1",
+                            "Organizational details",
+                            "P. 12"
+                        ],
+                        [
+                            "GRI 2-2",
+                            "Entities included",
+                            "P. 13"
+                        ],
+                        [
+                            "GRI 2-3",
+                            "Reporting period",
+                            "P. 14"
+                        ],
+                        [
+                            "GRI 3-1",
+                            "Material topics",
+                            "P. 22"
+                        ],
+                        [
+                            "GRI 3-2",
+                            "List of material topics",
+                            "P. 23"
+                        ]
+                    ]
+                }
+            }
+        ]
+    }
+}

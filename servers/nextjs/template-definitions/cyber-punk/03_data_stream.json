@@ -1,0 +1,72 @@
+{
+    "templateName": "cyber-punk",
+    "layoutId": "03_data_stream",
+    "layoutName": "Data Stream Analysis",
+    "layoutDescription": "Complex chart layout with code aesthetic",
+    "structure": {
+        "type": "absolute",
+        "elements": [
+            {
+                "type": "heading",
+                "field": "title",
+                "bounds": [
+                    5,
+                    5,
+                    60,
+                    10
+                ],
+                "align": "left",
+                "level": 2,
+                "defaultValue": "NETWORK TRAFFIC"
+            },
+            {
+                "type": "chart",
+                "field": "main_chart",
+                "bounds": [
+                    5,
+                    20,
+                    60,
+                    50
+                ],
+                "chartTypes": [
+                    "area",
+                    "line"
+                ],
+                "defaultType": "area"
+            },
+            {
+                "type": "chart",
+                "field": "sub_chart",
+                "bounds": [
+                    70,
+                    20,
+                    25,
+                    25
+                ],
+                "chartTypes": [
+                    "pie",
+                    "radar"
+                ],
+                "defaultType": "radar"
+            },
+            {
+                "type": "text",
+                "field": "code_log",
+                "bounds": [
+                    5,
+                    75,
+                    90,
+                    20
+                ],
+                "align": "left",
+                "maxWords": 100,
+                "defaultValue": "> INITIALIZING SEQUENCE...\n> DATA PACKET RECEIVED\n> OPTIMIZATION COMPLETE"
+            }
+        ]
+    },
+    "style": {
+        "fontFamily": "Rajdhani",
+        "backgroundColor": "#000000",
+        "color": "#00FF9D"
+    }
+}

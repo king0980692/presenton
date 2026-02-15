@@ -1,0 +1,53 @@
+{
+    "templateName": "nature-organic",
+    "layoutId": "organic-cover",
+    "layoutName": "1. Nature Cover",
+    "layoutDescription": "Soft, rounded, nature-inspired cover layout.",
+    "structure": {
+        "type": "absolute",
+        "background": "#F2F0E6",
+        "elements": [
+            {
+                "type": "image",
+                "field": "bg_hero",
+                "bounds": [
+                    10,
+                    10,
+                    80,
+                    50
+                ],
+                "fitMode": "cover",
+                "zIndex": 5,
+                "defaultPrompt": "lush forest peaceful morning sun",
+                "borderRadius": "24px"
+            },
+            {
+                "type": "heading",
+                "field": "report_title",
+                "bounds": [
+                    20,
+                    70,
+                    60,
+                    10
+                ],
+                "level": 1,
+                "align": "center",
+                "zIndex": 10,
+                "defaultValue": "Harmony with Nature"
+            },
+            {
+                "type": "text",
+                "field": "report_subtitle",
+                "bounds": [
+                    20,
+                    85,
+                    60,
+                    5
+                ],
+                "align": "center",
+                "zIndex": 10,
+                "defaultValue": "2024 CSR Report"
+            }
+        ]
+    }
+}
